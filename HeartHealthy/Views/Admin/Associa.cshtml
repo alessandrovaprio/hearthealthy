@@ -1,0 +1,64 @@
+﻿@using Microsoft.AspNetCore.Mvc
+@model List<AssociaView>
+@{
+    ViewData["Title"] = "AssociaMedico";
+    Layout = "_LayoutAdmin";
+}
+<h1 class="section-header">
+    <div>Medici</div>
+</h1>
+<div class="card card-sm-3">
+    <div class=" card-header">
+        <h3>
+            Seleziona il medico a cui associare il fitbit
+        </h3>
+        <br />
+    </div>
+    <div class="card-body">
+        <div id="grid">  </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        var data = @(Json.Serialize(Model));
+        $("#grid").kendoGrid({
+            dataSource: {
+                data: data,
+                schema: {
+                    model: {
+                        fields: {
+                            doctorId: { type: "number" },
+                            nomeDoctor: { type: "string" },
+                            cognomeDoctor: { type: "string" }
+                        }
+                    }
+                },
+                pageSize: 5
+            },
+            scrollable: false,
+            sortable: true,
+            filterable: true,
+            editable: true,
+            pageable: {
+                pageSizes: true,
+                buttonCount: 5
+            },
+            columns: [
+                { field: "doctorId", editable: true,title: "Id Medico" },
+                { field: "nomeDoctor", editable: true, title: "Nome Medico" },
+                { field: "cognomeDoctor", editable: true, title: "Cognome Medico" },
+                { command: { name: "AssociaMedico", click: Change }, title:"AssociaMedico" }
+            ]
+        });
+    })
+
+    function Change(e) {
+        e.preventDefault();
+        var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+
+        window.location.href = '@Url.Action("AssociaMedico", "Admin", new { id = "ID", idmedico = "MEDICO"})'.replace("ID", @Model.ElementAt(0).FitBitId).replace("MEDICO", dataItem.doctorId);
+    }
+</script>

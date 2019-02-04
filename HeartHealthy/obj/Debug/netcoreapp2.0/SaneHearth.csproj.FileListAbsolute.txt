@@ -1,0 +1,54 @@
+C:\Users\dani1\source\repos\HeartHealthy\HeartHealthy\bin\Debug\netcoreapp2.0\HeartHealthy.deps.json
+C:\Users\dani1\source\repos\HeartHealthy\HeartHealthy\bin\Debug\netcoreapp2.0\HeartHealthy.runtimeconfig.json
+C:\Users\dani1\source\repos\HeartHealthy\HeartHealthy\bin\Debug\netcoreapp2.0\HeartHealthy.runtimeconfig.dev.json
+C:\Users\dani1\source\repos\HeartHealthy\HeartHealthy\bin\Debug\netcoreapp2.0\HeartHealthy.dll
+C:\Users\dani1\source\repos\HeartHealthy\HeartHealthy\obj\Debug\netcoreapp2.0\HeartHealthy.csprojAssemblyReference.cache
+C:\Users\dani1\source\repos\HeartHealthy\HeartHealthy\obj\Debug\netcoreapp2.0\HeartHealthy.csproj.CoreCompileInputs.cache
+C:\Users\dani1\source\repos\HeartHealthy\HeartHealthy\obj\Debug\netcoreapp2.0\HeartHealthy.AssemblyInfoInputs.cache
+C:\Users\dani1\source\repos\HeartHealthy\HeartHealthy\obj\Debug\netcoreapp2.0\HeartHealthy.AssemblyInfo.cs
+C:\Users\dani1\source\repos\HeartHealthy\HeartHealthy\bin\Debug\netcoreapp2.0\HeartHealthy.pdb
+C:\Users\dani1\source\repos\HeartHealthy\HeartHealthy\obj\Debug\netcoreapp2.0\HeartHealthy.dll
+C:\Users\dani1\source\repos\HeartHealthy\HeartHealthy\obj\Debug\netcoreapp2.0\HeartHealthy.pdb
+C:\Users\dani1\Desktop\HeartHealthy\HeartHealthy\HeartHealthy\bin\Debug\netcoreapp2.0\HeartHealthy.deps.json
+C:\Users\dani1\Desktop\HeartHealthy\HeartHealthy\HeartHealthy\bin\Debug\netcoreapp2.0\HeartHealthy.runtimeconfig.json
+C:\Users\dani1\Desktop\HeartHealthy\HeartHealthy\HeartHealthy\bin\Debug\netcoreapp2.0\HeartHealthy.runtimeconfig.dev.json
+C:\Users\dani1\Desktop\HeartHealthy\HeartHealthy\HeartHealthy\bin\Debug\netcoreapp2.0\HeartHealthy.dll
+C:\Users\dani1\Desktop\HeartHealthy\HeartHealthy\HeartHealthy\bin\Debug\netcoreapp2.0\HeartHealthy.pdb
+C:\Users\dani1\Desktop\HeartHealthy\HeartHealthy\HeartHealthy\obj\Debug\netcoreapp2.0\HeartHealthy.csprojAssemblyReference.cache
+C:\Users\dani1\Desktop\HeartHealthy\HeartHealthy\HeartHealthy\obj\Debug\netcoreapp2.0\HeartHealthy.csproj.CoreCompileInputs.cache
+C:\Users\dani1\Desktop\HeartHealthy\HeartHealthy\HeartHealthy\obj\Debug\netcoreapp2.0\HeartHealthy.AssemblyInfoInputs.cache
+C:\Users\dani1\Desktop\HeartHealthy\HeartHealthy\HeartHealthy\obj\Debug\netcoreapp2.0\HeartHealthy.AssemblyInfo.cs
+C:\Users\dani1\Desktop\HeartHealthy\HeartHealthy\HeartHealthy\obj\Debug\netcoreapp2.0\HeartHealthy.dll
+C:\Users\dani1\Desktop\HeartHealthy\HeartHealthy\HeartHealthy\obj\Debug\netcoreapp2.0\HeartHealthy.pdb
+C:\Users\Fabio\Documents\Visual Studio 2017\Progetto_SaneHeart\HeartHealthy\HeartHealthy\HeartHealthy\bin\Debug\netcoreapp2.0\HeartHealthy.deps.json
+C:\Users\Fabio\Documents\Visual Studio 2017\Progetto_SaneHeart\HeartHealthy\HeartHealthy\HeartHealthy\bin\Debug\netcoreapp2.0\HeartHealthy.runtimeconfig.json
+C:\Users\Fabio\Documents\Visual Studio 2017\Progetto_SaneHeart\HeartHealthy\HeartHealthy\HeartHealthy\bin\Debug\netcoreapp2.0\HeartHealthy.runtimeconfig.dev.json
+C:\Users\Fabio\Documents\Visual Studio 2017\Progetto_SaneHeart\HeartHealthy\HeartHealthy\HeartHealthy\bin\Debug\netcoreapp2.0\HeartHealthy.dll
+C:\Users\Fabio\Documents\Visual Studio 2017\Progetto_SaneHeart\HeartHealthy\HeartHealthy\HeartHealthy\bin\Debug\netcoreapp2.0\HeartHealthy.pdb
+C:\Users\Fabio\Documents\Visual Studio 2017\Progetto_SaneHeart\HeartHealthy\HeartHealthy\HeartHealthy\obj\Debug\netcoreapp2.0\HeartHealthy.csprojResolveAssemblyReference.cache
+C:\Users\Fabio\Documents\Visual Studio 2017\Progetto_SaneHeart\HeartHealthy\HeartHealthy\HeartHealthy\obj\Debug\netcoreapp2.0\HeartHealthy.csproj.CoreCompileInputs.cache
+C:\Users\Fabio\Documents\Visual Studio 2017\Progetto_SaneHeart\HeartHealthy\HeartHealthy\HeartHealthy\obj\Debug\netcoreapp2.0\HeartHealthy.AssemblyInfoInputs.cache
+C:\Users\Fabio\Documents\Visual Studio 2017\Progetto_SaneHeart\HeartHealthy\HeartHealthy\HeartHealthy\obj\Debug\netcoreapp2.0\HeartHealthy.AssemblyInfo.cs
+C:\Users\Fabio\Documents\Visual Studio 2017\Progetto_SaneHeart\HeartHealthy\HeartHealthy\HeartHealthy\obj\Debug\netcoreapp2.0\HeartHealthy.dll
+C:\Users\Fabio\Documents\Visual Studio 2017\Progetto_SaneHeart\HeartHealthy\HeartHealthy\HeartHealthy\obj\Debug\netcoreapp2.0\HeartHealthy.pdb
+C:\Users\dani1\Downloads\HeartHealthy\HeartHealthy\HeartHealthy\bin\Debug\netcoreapp2.0\HeartHealthy.deps.json
+C:\Users\dani1\Downloads\HeartHealthy\HeartHealthy\HeartHealthy\bin\Debug\netcoreapp2.0\HeartHealthy.runtimeconfig.json
+C:\Users\dani1\Downloads\HeartHealthy\HeartHealthy\HeartHealthy\bin\Debug\netcoreapp2.0\HeartHealthy.runtimeconfig.dev.json
+C:\Users\dani1\Downloads\HeartHealthy\HeartHealthy\HeartHealthy\bin\Debug\netcoreapp2.0\HeartHealthy.dll
+C:\Users\dani1\Downloads\HeartHealthy\HeartHealthy\HeartHealthy\bin\Debug\netcoreapp2.0\HeartHealthy.pdb
+C:\Users\dani1\Downloads\HeartHealthy\HeartHealthy\HeartHealthy\obj\Debug\netcoreapp2.0\HeartHealthy.csprojAssemblyReference.cache
+C:\Users\dani1\Downloads\HeartHealthy\HeartHealthy\HeartHealthy\obj\Debug\netcoreapp2.0\HeartHealthy.csproj.CoreCompileInputs.cache
+C:\Users\dani1\Downloads\HeartHealthy\HeartHealthy\HeartHealthy\obj\Debug\netcoreapp2.0\HeartHealthy.AssemblyInfoInputs.cache
+C:\Users\dani1\Downloads\HeartHealthy\HeartHealthy\HeartHealthy\obj\Debug\netcoreapp2.0\HeartHealthy.AssemblyInfo.cs
+C:\Users\dani1\Downloads\HeartHealthy\HeartHealthy\HeartHealthy\obj\Debug\netcoreapp2.0\HeartHealthy.dll
+C:\Users\dani1\Downloads\HeartHealthy\HeartHealthy\HeartHealthy\obj\Debug\netcoreapp2.0\HeartHealthy.pdb
+C:\Users\Fabio\Documents\Visual Studio 2017\Progetto_SaneHeart\HeartHealthy\HeartHealthy\bin\Debug\netcoreapp2.0\HeartHealthy.deps.json
+C:\Users\Fabio\Documents\Visual Studio 2017\Progetto_SaneHeart\HeartHealthy\HeartHealthy\bin\Debug\netcoreapp2.0\HeartHealthy.runtimeconfig.json
+C:\Users\Fabio\Documents\Visual Studio 2017\Progetto_SaneHeart\HeartHealthy\HeartHealthy\bin\Debug\netcoreapp2.0\HeartHealthy.runtimeconfig.dev.json
+C:\Users\Fabio\Documents\Visual Studio 2017\Progetto_SaneHeart\HeartHealthy\HeartHealthy\bin\Debug\netcoreapp2.0\HeartHealthy.dll
+C:\Users\Fabio\Documents\Visual Studio 2017\Progetto_SaneHeart\HeartHealthy\HeartHealthy\bin\Debug\netcoreapp2.0\HeartHealthy.pdb
+C:\Users\Fabio\Documents\Visual Studio 2017\Progetto_SaneHeart\HeartHealthy\HeartHealthy\obj\Debug\netcoreapp2.0\HeartHealthy.csproj.CoreCompileInputs.cache
+C:\Users\Fabio\Documents\Visual Studio 2017\Progetto_SaneHeart\HeartHealthy\HeartHealthy\obj\Debug\netcoreapp2.0\HeartHealthy.AssemblyInfoInputs.cache
+C:\Users\Fabio\Documents\Visual Studio 2017\Progetto_SaneHeart\HeartHealthy\HeartHealthy\obj\Debug\netcoreapp2.0\HeartHealthy.AssemblyInfo.cs
+C:\Users\Fabio\Documents\Visual Studio 2017\Progetto_SaneHeart\HeartHealthy\HeartHealthy\obj\Debug\netcoreapp2.0\HeartHealthy.dll
+C:\Users\Fabio\Documents\Visual Studio 2017\Progetto_SaneHeart\HeartHealthy\HeartHealthy\obj\Debug\netcoreapp2.0\HeartHealthy.pdb

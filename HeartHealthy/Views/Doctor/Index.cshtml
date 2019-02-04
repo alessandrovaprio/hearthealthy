@@ -1,0 +1,135 @@
+﻿@model DoctorModels
+@using Microsoft.AspNetCore.Mvc
+@{ 
+    ViewBag.Title = "Home";
+}
+@*<section class="section">*@
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="card card-sm-3">
+                <div class="card-icon bg-primary">
+                    <i class="ion ion-person" ></i>
+                </div>
+                <div class="card-wrap">
+                    <div class="card-header">
+                        <h4>Totale pazienti assegnati</h4>
+                    </div>
+                    <div class="card-body" >
+                        @Model.fitbits.Count
+                    </div>
+                </div>
+
+            </div>
+        </div>
+   
+        <div class="col-lg-3 col-md-6 col-12">
+            <div class="card card-sm-3">
+                <div class="card-icon bg-primary">
+                    <i class="ion ion-person"></i>
+                </div>
+                <div class="card-wrap">
+                    <div class="card-header">
+                        <h4>Allenamenti assegnati questa settimana</h4>
+                    </div>
+                    <div class="card-body">
+                        @Model.AllenmentiSettimana
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    
+        <div class="col-lg-3 col-md-6 col-12">
+            <div class="card card-sm-3">
+                <div class="card-icon bg-primary">
+                    <i class="ion ion-person"></i>
+                </div>
+                <div class="card-wrap">
+                    <div class="card-header">
+                        <h4>Totale battiti registrati oggi </h4>
+                    </div>
+                    <div class="card-body">
+                        @Model.Battiti
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card card-sm-3">
+        <div class=" card-header">
+            <h3>Elenco pazienti assegnati</h3>
+            <br />
+        </div>
+        <div class="card-body">
+            <div id="grid">  </div>
+            <br />
+        </div>
+    </div>
+        @*</section>*@
+
+<script>
+
+    $(document).ready(function () {
+        var data = @(Json.Serialize(Model.fitbits));
+        $("#grid").kendoGrid({
+            dataSource: {
+                data: data,
+
+                schema: {
+
+                    model: {
+
+                        fields: {
+                            id: { type: "number" },
+                            doctorId: { type: "number" },
+                            nome: { type: "string" },
+                            cognome: { type: "string" },
+                            mail: { type: "string" },
+                            girnoAssociazione: {type: "date"}
+                        }
+                    }
+                },
+                pageSize: 5
+            },
+            scrollable: false,
+            sortable: true,
+            filterable:
+            {
+                extra: true,
+                operators:
+                {
+                    string: {
+                        startswith: "Inizia con",
+                        eq: "Uguale a",
+                        neq: "Diverso da",
+                        
+                        startswith: "Inizia con",
+                        eq: "Uguale a",
+                        neq: "Diverso da"
+
+                    }
+                }
+            },
+            editable: false,
+            pageable: {
+                    pageSizes: true,
+                    buttonCount: 5
+            },
+            pageSize: 5,
+            columns: [
+                { field: "nome", title: "Nome" },
+                { field: "cognome", title: "Cognome" },
+                { field: "mail", title: "Email" },
+                {
+                    field: "girnoAssociazione",
+                    title: "GirnoAssociazione",
+                    format: "{0:MM/dd/yyyy}",
+                    filterable: {
+                        ui: "datetimepicker"
+                    }
+                },
+            ]
+        });
+    })
+
+</script>

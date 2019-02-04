@@ -1,0 +1,62 @@
+﻿
+@using Microsoft.AspNetCore.Mvc
+@using LinqToDB;
+@using LinqToDB.DataProvider.SQLite;
+@model HeartHealthy.Models.AdminView
+
+@{
+    Layout = "_LayoutAdmin";
+}
+<h1 class="section-header">
+    <div>Home</div>
+</h1>
+<div class="row">
+    <div class="col-lg-3">
+        <div class="card card-sm-3">
+            <div class="card-icon bg-primary">
+                <i class="ion ion-person"></i>
+            </div>
+            <div class="card-wrap">
+                <div class="card-header">
+                    <h4>Utenti</h4>
+                </div>
+                <div class="card-body">
+                    @Model.Utenti
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6 col-12">
+        <div class="card card-sm-3">
+            <div class="card-icon bg-primary">
+                <i class="ion ion-person"></i>
+            </div>
+            <div class="card-wrap">
+                <div class="card-header">
+                    <h4>Admin</h4>
+                </div>
+                <div class="card-body">
+                    @Model.Admin
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6 col-12">
+        <div class="card card-sm-3">
+            <div class="card-icon bg-primary">
+                <i class="ion ion-person"></i>
+            </div>
+            <div class="card-wrap">
+                <div class="card-header">
+                    <h4>Dottori</h4>
+                </div>
+                <div class="card-body">
+                    @Model.Dottori
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

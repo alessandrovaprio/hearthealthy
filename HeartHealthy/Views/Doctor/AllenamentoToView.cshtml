@@ -1,0 +1,30 @@
+﻿@model List<Fitbit>;
+@{
+    ViewData["Title"] = "Allenamento";
+}
+
+@using (Html.BeginForm("Allenamento", "Doctor", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <form method="POST">
+        <div class="form-control">
+            <div>
+                <label class="form-control">
+                    seleziona il paziente di cui si vuole gestire i piani di allenamento
+                    <select name="FitBit" class="form-control">
+                        @foreach (var paziente in Model)
+                        {
+                            <option value="@paziente.Id">@paziente.Mail</option>
+                        }
+                    </select>
+                </label>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    Visualizza gli allenamenti ora!
+                </button>
+            </div>
+        </div>
+    </form>
+}
+

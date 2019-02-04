@@ -1,0 +1,46 @@
+﻿@using Microsoft.AspNetCore.Mvc
+@model HeartHealthy.Models.ProfiloView
+@{
+    ViewData["Title"] = "UpdateProfilo";
+}
+@{
+    Layout = "_LayoutAdmin";
+}
+<h1 class="section-header">
+    <div>Modifica Profilo</div>
+</h1>
+@using (Html.BeginForm("Update", "Admin", new { id = User.Claims.ToList().ElementAt(0).Value, pass = Model.Password } , FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="card card-sm-3">
+        <div class="card-body">
+            <br />
+            <form method="POST">
+                <table border="0">
+                    <tr></tr>
+                    <tr>
+                        <td> Nome Utente</td>
+                        <td><input id="nome" class="form-control" name="nome" value="@Model.Nome" required autofocus></td>
+                    </tr>
+                    <tr>
+                        <td> Cognome Utente</td>
+                        <td><input id="cognome" class="form-control" name="cognome" value="@Model.Cognome" required autofocus></td>
+                    </tr>
+                    <tr>
+                        <td> Email Utente</td>
+                        <td><input id="email" type="email" class="form-control" name="email" value="@Model.Email" required autofocus></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                Modifica
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+
+            </form>
+            <br />
+        </div>
+    </div>
+}

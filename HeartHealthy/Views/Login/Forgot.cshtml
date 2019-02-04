@@ -1,0 +1,30 @@
+﻿@using Microsoft.AspNetCore.Mvc
+@{
+    ViewData["Title"] = "Forgot";
+}
+@{
+    Layout = "_LayoutLogin";
+}
+
+@using (Html.BeginForm("Forgot", "Login", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="card-body">
+        <h4 class="card-title">Login</h4>
+        <form method="POST">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <p>Inserire la mail con cui ci si è registrati per effettuare il recupero password</p>
+                <label for="email">Indirizzo E-Mail </label>
+                <input id="email" type="email" class="form-control" name="mail" value="" required autofocus>
+            </div>
+            <div class="form-group no-margin">
+                <button type="submit" class="btn btn-primary btn-block">
+                    Invia
+                </button>
+            </div>
+        </form>
+    </div>
+}
+
+

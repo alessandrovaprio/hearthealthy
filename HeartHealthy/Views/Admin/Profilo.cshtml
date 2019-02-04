@@ -1,0 +1,47 @@
+﻿
+@using Microsoft.AspNetCore.Mvc
+@using LinqToDB;
+@using LinqToDB.DataProvider.SQLite;
+@model HeartHealthy.Models.ProfiloView
+
+@{
+    Layout = "_LayoutAdmin";
+}
+<h1 class="section-header">
+    <div>Profilo</div>
+</h1>
+<div class="card card-sm-3">
+    <div class=" card-header">
+        <h3 class="align-items-center">
+            Informazioni Utente
+        </h3>
+        <br />
+    </div>
+    <div class="card-body">
+        <table class="table border=0 table-hover">
+            <thead>
+                <img alt="image" src="~/stisla_admin_v1.0.0//dist/img/avatar/admin.jpeg" width="150">
+            </thead>
+            <tbody>
+                <tr>
+                    <th><h3><scope ="row">Nome </h3></th>
+                    <td><h3>@Model.Nome</h3></td>
+                </tr>
+                <tr>
+                    <th><h3><scope ="row">Cognome </h3></th>
+                    <td><h3>@Model.Cognome</h3></td>
+                </tr>
+                <tr>
+                    <th><h3><scope ="row">Email </h3></th>
+                    <td><h3>@Model.Email</h3></td>
+                </tr>
+                <tr>
+                    <th><h3><scope ="row">Ruolo </h3></th>
+                    <td><h3>@Model.Ruolo</h3></td>
+            </tbody>
+        </table>
+        <button type="button" class="btn btn-primary btn-lg"> @Html.ActionLink("Modifica Informazioni", "UpdateProfilo", "Admin", new { id = Model.Id }, new { @class = "my-class" })</button>
+        <button type="button" class="btn btn-primary btn-lg">@Html.ActionLink("Reimposta Password", "UpdatePassword", "Admin", new { pass = Model.Password }, new { @class = "my-class" })</button>
+    </div>
+
+</div>

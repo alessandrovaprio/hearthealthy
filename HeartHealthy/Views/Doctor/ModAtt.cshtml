@@ -1,0 +1,44 @@
+﻿@model Attivita
+@{
+    ViewData["Title"] = "Modifica Attività";
+}
+@using (Html.BeginForm("ModAtt", "Doctor", new { id = Model.Id, IdAllenamento = Model.IdAllenamento }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <form method="POST">
+        <div class="form-control">
+            <div>
+                <label class="form-control">Id attività <input type="number" name="Id" value="@Model.Id" class="form-control" disabled /> </label>
+            </div>
+            <div>
+                <label class="form-control">Id allenamento <input type="number" name="IdAllenamento" value="@Model.IdAllenamento" class="form-control" disabled /> </label>
+            </div>
+            <div>
+                <label class="form-control">Modifica i km minimi dell'attività <input type="number" name="KmMinimi" value="@Model.KmMinimi" class="form-control" required /> </label>
+            </div>
+            <div>
+                <label class="form-control">Modifica la durata minima dell'attività(in minuti) <input type="number" name="DurataMinima" value="@Model.DurataMinima"  class="form-control" required /> </label>
+            </div>
+            <div>
+                <label class="form-control">Modifica il dislivello in salita  <input type="number" value="@Model.MSalita" name="MSalita" class="form-control" required /> </label>
+            </div>
+            <div>
+                <label class="form-control">
+                    Modifica il tipo di attività(Camminata/Corsa)
+                    <select id="select" name="Description" class="form-control">
+                        <option id="old" value="@Model.Description.ToString()" selected hidden>Il valore precedente era @Model.Description</option>
+                        <option value="camminata">Camminata</option>
+                        <option value="corsa">Corsa</option>
+                    </select>
+                </label>
+            </div>
+            <div>
+                <button type="submit" onclick="Description()" class="btn btn-primary btn-block">
+                    Modifica l'attività ora!
+                </button>
+            </div>
+        </div>
+ 
+    </form>
+    
+}

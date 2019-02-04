@@ -1,0 +1,110 @@
+﻿
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport">
+    <title> Hearth Healthy</title>
+    <link rel="icon" href="~/Image/favicon.ico" />
+    <link rel="stylesheet" href="~/stisla_admin_v1.0.0/dist/modules/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/stisla_admin_v1.0.0/dist/modules/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="~/stisla_admin_v1.0.0/dist/modules/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="~/stisla_admin_v1.0.0/dist/modules/summernote/summernote-lite.css">
+    <link rel="stylesheet" href="~/stisla_admin_v1.0.0/dist/modules/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="~/stisla_admin_v1.0.0/dist/css/demo.css">
+    <link rel="stylesheet" href="~/stisla_admin_v1.0.0/dist/css/style.css">
+    <link rel="stylesheet" href="~/Kendo/2018.1.117/styles/kendo.silver.min.css" />
+    <link rel="stylesheet" href="~/Kendo/2018.1.117/styles/kendo.common.min.css" />
+    @*<link rel="stylesheet" href="~/Kendo/2018.1.117/styles/ kendo.rtl.min.css" />
+        <link rel="stylesheet" href="~/Kendo/2018.1.117/styles/ kendo.mobile.all.min.css" />*@
+    @*<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">*@
+
+    <script src="~/Kendo/2018.1.117/js/jquery.min.js"></script>
+    <script src="~/Kendo/2018.1.117/js/kendo.all.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="main-wrapper">
+            <div class="navbar-bg"></div>
+            <nav class="navbar navbar-expand-lg main-navbar">
+                <form class="form-inline mr-auto">
+                    <ul class="navbar-nav mr-3">
+                        <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="ion ion-navicon-round"></i></a></li>
+                        
+                    </ul>
+                    
+                </form>
+                <ul class="navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
+                            <i class="ion ion-android-person d-lg-none"></i>
+                            <div class="d-sm-none d-lg-inline-block">Hi, @User.Identity.Name</div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <center><bold><i class="ion ion-android-person"></i>  @Html.ActionLink("Profilo", "Profilo", "Admin", new { id = User.Claims.ToList().ElementAt(0).Value }, null)</bold></center>
+                            <center><bold><i class="ion ion-log-out"></i>  @Html.ActionLink("Logout", "Logout", "Login")</bold></center>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="main-sidebar">
+                <aside id="sidebar-wrapper">
+                    <div class="sidebar-brand">
+                        <bold> @Html.ActionLink("SANE HEARTH", "Index", "Doctor")</bold>
+                    </div>
+                    <div class="sidebar-user">
+                        <div class="sidebar-user-picture">
+                            <img alt="image" src="~/stisla_admin_v1.0.0//dist/img/avatar/admin.jpeg">
+                        </div>
+                        <div class="sidebar-user-details">
+                            <div class="user-role">
+                                Doctor
+                                @User.Identity.Name
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="sidebar-menu">
+                        <li class="menu-header">Strumenti</li>
+                        <li>
+                            <a href="#" class="has-dropdown"><i class="ion ion-ios-albums-outline"></i><span>Strumenti</span></a>
+                            <ul class="menu-dropdown">
+                                <li>@Html.ActionLink("Home", "Index", "Doctor")</li>
+                                <li>@Html.ActionLink("Monitoraggio", "MonitoraggioToView", "Doctor")</li>
+                                <li>@Html.ActionLink("Piani di allenamento", "AllenamentoToView", "Doctor")</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </aside>
+            </div>
+            <div class="main-content">
+                <section class="section">
+                    <h1 class="section-header">
+                        <div>@ViewBag.Title</div>
+                    </h1>
+
+                    @RenderBody()
+
+                </section>
+            </div>
+
+        </div>
+        <footer class="main-footer">
+            <div class="footer-left">
+                Copyright © Alessandro Vaprio <div class="bullet"></div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="~/stisla_admin_v1.0.0//dist/modules/popper.js"></script>
+    <script src="~/stisla_admin_v1.0.0//dist/modules/tooltip.js"></script>
+    <script src="~/stisla_admin_v1.0.0//dist/modules/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/stisla_admin_v1.0.0//dist/modules/nicescroll/jquery.nicescroll.min.js"></script>
+    <script src="~/stisla_admin_v1.0.0//dist/modules/scroll-up-bar/dist/scroll-up-bar.min.js"></script>
+    <script src="~/stisla_admin_v1.0.0//dist/js/sa-functions.js"></script>
+
+    <script src="~/stisla_admin_v1.0.0//dist/modules/chart.min.js"></script>
+    <script src="~/stisla_admin_v1.0.0//dist/modules/summernote/summernote-lite.js"></script>
+    <script src="~/stisla_admin_v1.0.0//dist/js/scripts.js"></script>
+    <script src="~/stisla_admin_v1.0.0//dist/js/custom.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+﻿@model List<Fitbit>;
+@{
+    ViewData["Title"] = "Nuovo Allenamento";
+}
+
+
+@using (Html.BeginForm("Aggiungi", "Doctor", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <form method="POST">
+        <div class="form-control">
+            <div>
+                <label class="form-control">
+                    seleziona il paziente a cui assegnare il nuovo allenamento
+                    <select name="IdFitBit" class="form-control">
+
+                        @foreach (var paziente in Model)
+                        {
+                            <option value="@paziente.Id">@paziente.Mail</option>
+                        }
+                    </select>
+                </label>
+            </div>
+            <div>
+                <label class="form-control">inserire la durata in giorni di allenamento <input type="number" name="Durata" class="form-control" required /> </label>
+            </div>
+            <div>
+                <label class="form-control">inserire la frequenza settimanale degli allenamenti <input type="number" name="Frequenza" class="form-control" required /> </label>
+            </div>
+            <div>
+                <label class="form-control">inserire il peso target <input type="number" name="PesoTarget" class="form-control" required /> </label>
+            </div>
+            <div>
+                <label class="form-control">
+                    Inserire la data da cui partirà il nuovo allenamento
+                    <input type="date" name="DataAssegnamento" class="form-control dataTable" required />
+                </label>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    Inserisci l'allenamento ora!
+                </button>
+            </div>
+        </div>
+    </form>
+}
+
+

@@ -1,0 +1,42 @@
+﻿@using Microsoft.AspNetCore.Mvc
+@model HeartHealthy.Models.LoginView
+@{
+    ViewData["Title"] = "Home Page";
+}
+@{
+    Layout = "_LayoutLogin";
+}
+
+@using (Html.BeginForm("Login", "Login", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="card-body">
+        <h4 class="card-title">Login</h4>
+        <form method="POST">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <label for="email">E-Mail Address</label>
+                <input id="email" type="email" class="form-control" name="email" value="" required autofocus>
+            </div>
+            <div class="form-group">
+                <label for="password" >
+                    Password
+                </label>
+                <input id="password" type="password" class="form-control" name="password" required data-eye>
+                @Html.ActionLink("Password dimenticata", "ForgotToView", "Login")
+            </div>
+
+            <div class="form-group no-margin">
+                <button type="submit" class="btn btn-primary btn-block">
+                    Login
+                </button>
+            </div>
+        </form>
+        <div class="margin-top20 text-center">
+            Non hai un account? @Html.ActionLink("Crealo!", "ResgistratiToView", "Login")
+        </div>
+    </div>
+
+}
+
+

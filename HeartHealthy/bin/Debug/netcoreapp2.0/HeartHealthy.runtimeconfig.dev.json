@@ -1,0 +1,9 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\avaprio.IRIDES\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\avaprio.IRIDES\\.nuget\\packages",
+      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+    ]
+  }
+}

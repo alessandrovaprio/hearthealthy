@@ -1,0 +1,67 @@
+﻿@using Microsoft.AspNetCore.Mvc
+@model List<FitbitView>
+@{
+    ViewData["Title"] = "ElencoFitBitNonAssociati";
+    Layout = "_LayoutAdmin";
+}
+<h1 class="section-header">
+    <div>FitBit non associati</div>
+</h1>
+<div class="card card-sm-3">
+    <div class=" card-header">
+        <h3>
+            Elenco FitBit non associati
+        </h3>
+        <br />
+    </div>
+    <div class="card-body">
+        <div id="grid"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        var data = @(Json.Serialize(Model));
+        $("#grid").kendoGrid({
+            dataSource: {
+                data: data,
+                schema: {
+                    model: {
+                        fields: {
+                            id: { type: "number" },
+                            nome: { type: "string" },
+                            cognome: { type: "string" },
+                            mail: { type: "string" }
+                        }
+                    }
+                }
+            },
+            scrollable: true,
+            sortable: true,
+            filterable: true,
+            editable: false,
+            pageable: {
+                pageSizes: true,
+                buttonCount: 5
+            },
+            columns: [
+                { field: "id", title: "Id" },
+                { field: "nome", title: "Nome" },
+                { field: "cognome", title: "Cognome" },
+                { field: "mail", title: "Mail" },
+                { command: { name: "Associa FitBit", click: Associa }, title: "Associa" }
+            ]
+        });
+    })
+
+    function Associa(e) {
+        e.preventDefault();
+        var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+        
+        var i = dataItem.id;
+        
+        window.location.href = '@Url.Action("Associa", "Admin", new { id = "ID"})'.replace("ID", i);
+    }
+
+</script>

@@ -1,0 +1,54 @@
+﻿@model List<EliminaModel>
+@{
+    ViewData["Title"] = "Insescri la nuov attività";
+}
+@using (Html.BeginForm("AggiungiAttivita", "Doctor", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <form method="POST">
+        <div class="form-control">
+            <div>
+                <label class="form-control">
+                    seleziona il paziente e il relativo allenamento a ciu aggiungere la nuova attività
+                    <select name="IdAllenamento" class="form-control">
+                       
+                        @foreach (var paziente in Model)
+                        {
+                            <option value="@paziente.Id">Paziente: @paziente.Mail Allenamento: @paziente.Id</option>
+                        }
+                    </select>
+                </label>
+            </div>
+            <div>
+                <label class="form-control">inserire i km minimi <input type="number" name="KmMinimi" class="form-control" required /> </label>
+            </div>
+            <div>
+                <label class="form-control">inserire la durata minima dell'attività (in minuti) <input type="number" name="DurataMinima" class="form-control" required /> </label>
+            </div>
+            <div>
+                <label class="form-control">inserire il minimo dislivello in salita <input type="number" name="MSalita" class="form-control" required /> </label>
+            </div>
+            <div>
+                <label class="form-control">
+                    seleziona il tipo di attività
+                    <select name="Description" class="form-control">
+                        <option value="camminata">Camminata</option>
+                        <option value="corsa">Corsa</option>
+                    </select>
+                </label>
+            </div>
+            @*<div>
+                <label class="form-control">
+                    Vuoi inserire altre attività?
+                    <input type="radio" name="AltreAttivita" value="true" />
+                </label>
+            </div>*@
+            <div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    Inserisci la nuova attività!
+                </button>
+            </div>
+        </div>
+    </form>
+}
+

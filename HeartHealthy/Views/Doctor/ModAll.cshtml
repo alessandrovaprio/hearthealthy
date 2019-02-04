@@ -1,0 +1,39 @@
+﻿@model Allenamento
+@{
+    ViewData["Title"] = "Modifica Allenamento";
+}
+@using (Html.BeginForm("ModAll", "Doctor",new { id = Model.Id, IdFitBit = Model.IdFitBit }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <form method="POST">
+        <div class="form-control">
+            <div>
+                <label class="form-control">Id allenamento <input type="number" name="Id" value="@Model.Id" class="form-control"  disabled /> </label>
+            </div>
+            <div>
+                <label class="form-control">IdFitBit <input type="number" name="IdFitBit" value="@Model.IdFitBit" class="form-control" disabled /> </label>
+            </div>
+            <div>
+                <label class="form-control">Modifica la durata in giorni di allenamento <input type="number" name="Durata" value="@Model.Durata" class="form-control" required /> </label>
+            </div>
+            <div>
+                <label class="form-control">Modifica la frequenza settimanale degli allenamenti <input type="number" name="Frequenza" value="@Model.Frequenza" max="7" class="form-control" required /> </label>
+            </div>
+            <div>
+                <label class="form-control">inserire il peso target <input type="number" value="@Model.PesoTarget" name="PesoTarget" class="form-control" required /> </label>
+            </div>
+            <div>
+                <label class="form-control">
+                    Inserire la data da cui partirà il nuovo allenamento
+                    <input type="date" name="DataAssegnamento" value="@Model.DataAssegnamento.Year-@Model.DataAssegnamento.Month-@Model.DataAssegnamento.Day" @*"@Model.DataAssegnamento.ToShortDateString()"*@ class="form-control dataTable" required />
+                </label>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    Inserisci l'allenamento ora!
+                </button>
+            </div>
+        </div>
+    </form>
+}
+

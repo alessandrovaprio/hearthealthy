@@ -1,0 +1,69 @@
+﻿@using Microsoft.AspNetCore.Mvc
+@model List<FitbitView>
+@{
+    ViewData["Title"] = "ElencoFitBitAssociati";
+    Layout = "_LayoutAdmin";
+}
+<h1 class="section-header">
+    <div>FitBit associati</div>
+</h1>
+<div class="card card-sm-3">
+    <div class=" card-header">
+        <h3>
+            Elenco FitBit associati
+        </h3>
+        <br />
+    </div>
+    <div class="card-body">
+        <div id="grid"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        var data = @(Json.Serialize(Model));
+        $("#grid").kendoGrid({
+            dataSource: {
+                data: data,
+                schema: {
+                    model: {
+                        fields: {
+                            id: { type: "number" },
+                            nome: { type: "string" },
+                            cognome: { type: "string" },
+                            mail: { type: "string" },
+                            nomeDottore: { type: "string" },
+                            cognomeDottore: { type: "string" }
+                        }
+                    }
+                }
+            },
+            scrollable: true,
+            sortable: true,
+            filterable: true,
+            editable: false,
+            pageable: {
+                pageSizes: true,
+                buttonCount: 5
+            },
+            columns: [
+                { field: "id", title: "Id" },
+                { field: "nome", title: "Nome" },
+                { field: "cognome", title: "Cognome" },
+                { field: "mail", title: "Mail" },
+                { field: "nomeDottore", title: "NomeDottore" },
+                { field: "cognomeDottore", title: "CognomeDottore" },
+                { command: { name: "DeassociaMedico", click: Change }, title: "DeassociaMedico" }
+            ]
+        });
+    })
+
+    function Change(e) {
+        e.preventDefault();
+        var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+
+        window.location.href = '@Url.Action("DeassociaMedico", "Admin", new { id = "ID"})'.replace("ID", dataItem.id);
+    }
+
+</script>

@@ -1,0 +1,35 @@
+﻿@model List<Fitbit>;
+@{
+    ViewData["Title"] = "Monitoraggio";
+}
+
+@using (Html.BeginForm("Monitoraggio", "Doctor", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <form method="POST">
+        <div class="form-control">
+            <div>
+                <label class="form-control">
+                    seleziona il paziente da monitorare 
+                    <select name="Paziente" class="form-control">
+                        @foreach (var paziente in Model)
+                        {
+                            <option value="@paziente.Id">@paziente.Mail</option>
+                        }
+                    </select>
+                </label>
+            </div>
+            <div>
+                <label class="form-control">Data inizio monitoraggio <input type="date" name="DataInizio" class="form-control dataTable" required /> </label>
+            </div>
+            <div>
+                <label class="form-control">Data fine monitoraggio <input type="date" name="DataFine" class="form-control dataTable" required/> </label>
+            </div>
+            <div>
+                <button type="submit" onclick="return Function()" class="btn btn-primary btn-block">
+                    Monitora ora!
+                </button>
+            </div>
+        </div>
+    </form>
+}

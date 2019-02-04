@@ -1,0 +1,194 @@
+﻿@model AllenamentoModel
+@{
+    ViewData["Title"] = "Allenamento";
+}
+
+<div class="card card-sm-3">
+    <div class=" card-header">
+        <h3>Elenco allenamenti assegnati al paziente </h3>
+        <br />
+    </div>
+    <div class="card-body">
+        <div id="grid">  </div>
+        <br />
+        <div>
+            <input type="button" name="nome" value="Inserisci nuovo Allenamento" onclick="location.href='https://localhost:44399/Doctor/InsertAllenamento'" class="btn btn-primary btn-block">
+        </div>
+        <br />
+    </div>
+</div>
+<div class="card card-sm-3">
+    <div class=" card-header">
+        <h3>Elenco attività per allenamenti </h3>
+        <br />
+    </div>
+    <div class="card-body">
+        <div id="gridAtt">  </div>
+        <br />
+        <div>
+            <input type="button" name="nome" value="Inserisci una nuova attività" onclick="location.href='https://localhost:44399/Doctor/InsertAttivita'" class="btn btn-primary btn-block">
+        </div>
+        <br />
+    </div>
+</div>
+<script>
+
+    $(document).ready(function () {
+        var data = @(Json.Serialize(Model.Allenamento));
+        $("#grid").kendoGrid({
+            dataSource: {
+                data: data,
+
+                schema: {
+
+                    model: {
+
+                        fields: {
+                            id: { type: "number" },
+                            idFitBit: { type: "number" },
+                            durata: { type: "number" },
+                            frequenza: { type: "number" },
+                            pesoTarget: { type: "number" },
+                            dataAssegnamento: {type: "date"}
+                        }
+                    }
+                },
+                pageSize: 5
+            },
+            scrollable: true,
+            sortable: true,
+            filterable:
+            {
+                extra: true,
+                operators:
+                {
+                    string: {
+                        startswith: "Inizia con",
+                        eq: "Uguale a",
+                        neq: "Diverso da",
+
+                        startswith: "Inizia con",
+                        eq: "Uguale a",
+                        neq: "Diverso da"
+
+                    }
+                }
+            },
+            editable: false,
+            pageable: {
+                    pageSizes: true,
+                    buttonCount: 5
+            },
+            pageSize: 10,
+            columns: [
+                { field: "id", title: "ID" },
+                { field: "idFitBit", title: "FitBit" },
+                { field: "durata", title: "Durata in giorni" },
+                { field: "frequenza", title: "Attività settimanali" },
+                { field: "pesoTarget", title: "PesoTarget" },
+                {
+                    field: "dataAssegnamento",
+                    title: "DataAssegnamento",
+                    format: "{0:MM/dd/yyyy}",
+                    filterable: {
+                        ui: "datetimepicker"
+                    }
+                },
+                { command: { name: "Modifica", click: Modify }, title: "Modifica" },
+                { command: { name: "Elimina", click: Delete }, title: "Elimina" },
+            ]
+        });
+    })
+    //function per modifica
+     function Modify(e) {
+        e.preventDefault();
+        var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+
+         window.location.href = '@Url.Action("ModificaAllenamento", "Doctor", new { id = "ID" })'.replace("ID", dataItem.id);
+    }
+    //function per eliminazione allenamenti
+     function Delete(e) {
+        e.preventDefault();
+        var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+
+         window.location.href = '@Url.Action("EliminaAllenamento", "Doctor", new { id = "ID" })'.replace("ID", dataItem.id);
+    }
+    
+    //grid per attività
+
+    
+    $(document).ready(function () {
+        var data = @(Json.Serialize(Model.Attivita));
+
+        $("#gridAtt").kendoGrid({
+            dataSource: {
+                data: data,
+
+                schema: {
+
+                    model: {
+
+                        fields: {
+                            id: { type: "number" },
+                            idAllenamento: { type: "number" },
+                            kmMinimi: { type: "number" },
+                            durataMinima: { type: "number" },
+                            mSalita: { type: "number" },
+                            description: { type: "string" }
+                        }
+                    }
+                },
+                pageSize: 5
+            },
+            scrollable: true,
+            sortable: true,
+            filterable:
+            {
+                extra: true,
+                operators:
+                {
+                    string: {
+                        startswith: "Inizia con",
+                        eq: "Uguale a",
+                        neq: "Diverso da",
+
+                        startswith: "Inizia con",
+                        eq: "Uguale a",
+                        neq: "Diverso da"
+
+                    }
+                }
+            },
+            editable: false,
+            pageable: {
+                pageSizes: true,
+                buttonCount: 5
+            },
+            pageSize: 10,
+            columns: [
+                { field: "id", title: "ID" },
+                { field: "idAllenamento", title: "IDAllenamento" },
+                { field: "kmMinimi", title: "KmMinimi" },
+                { field: "durataMinima", title: "Durata minuti minimi" },
+                { field: "mSalita", title: "M. in salita" },
+                { field: "description", title: "Tipo attività" },
+                { command: { name: "Modifica", click: ModifyAtt }, title: "Modifica" },
+                { command: { name: "Elimina", click: DeleteAtt }, title: "Elimina" },
+            ]
+        });
+    })
+     //function per modifica
+     function ModifyAtt(e) {
+        e.preventDefault();
+        var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+
+         window.location.href = '@Url.Action("ModificaAttività", "Doctor", new { id = "ID" })'.replace("ID", dataItem.id);
+    }
+    //function per eliminazione allenamenti
+     function DeleteAtt(e) {
+        e.preventDefault();
+        var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+
+         window.location.href = '@Url.Action("EliminaAttivita", "Doctor", new { id = "ID" })'.replace("ID", dataItem.id);
+    }
+</script>

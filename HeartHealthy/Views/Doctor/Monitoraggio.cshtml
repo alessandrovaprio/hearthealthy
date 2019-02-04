@@ -1,0 +1,591 @@
+﻿@model MonitoraggioModels
+@{
+    ViewData["Title"] = "Monitoraggio";
+}
+
+<div class="card card-sm-3">
+    <div class=" card-header">
+        <h3>Elenco pazienti assegnati</h3>
+        <br />
+    </div>
+    <div class="card-body">
+        <div id="grid">  </div>
+        <br />
+    </div>
+</div>
+@if (Model.BattitiperPaziente.Count > 0)
+{
+    <div class="card card-sm-3">
+        <div class="card card-sm-3">
+            <div class=" card-header">
+                <h3>Elenco battiti registrati</h3>
+                <br />
+            </div>
+            <div class="card-body">
+                <div id="Battiti">  </div>
+                <br />
+            </div>
+        </div>
+        <div class="card card-sm-3">
+            <div class=" card-header">
+                <center> <h3>Statistiche Battiti registrati</h3></center>
+                <br />
+            </div>
+            <div class="card-body">
+                <canvas id="BattitiChart"></canvas>
+                <br />
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="card card-sm-3">
+        <div class=" card-header">
+            <h3>Non sono stati trovati battiti registrati per il paziente scelto o per il range di date selezionato </h3>
+            <br />
+        </div>
+    </div>
+}
+@if (Model.Percorsi.Count > 0)
+{
+    <div class="card card-sm-3">
+        <div class="card card-sm-3">
+            <div class=" card-header">
+                <h3>Elenco percorsi registrati con informazioni su km passi e durata attività</h3>
+                <br />
+            </div>
+            <div class="card-body">
+                <div id="percorsi">  </div>
+                <br />
+            </div>
+        </div>
+        <div class="card card-sm-3">
+            <div class=" card-header">
+                <center> <h3>Statistiche Km registrati</h3></center>
+                <br />
+            </div>
+            <div class="card-body">
+                <canvas id="KmPercorsiChart"></canvas>
+                <br />
+            </div>
+            <div class=" card-header">
+                <center> <h3>Statistiche passi registrati</h3></center>
+                <br />
+            </div>
+            <div class="card-body">
+                <canvas id="PassiChart"></canvas>
+                <br />
+            </div>
+            <div class=" card-header">
+                <center> <h3>Statistiche durata attività</h3></center>
+                <br />
+            </div>
+            <div class="card-body">
+                <canvas id="DurataChart"></canvas>
+                <br />
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="card card-sm-3">
+        <div class=" card-header">
+            <h3>Non sono stati trovati percorsi registrati per il paziente scelto o per il range di date selezionato </h3>
+            <br />
+        </div>
+    </div>
+}
+@if (Model.Peso.Count > 0)
+{
+    <div class="card card-sm-3">
+        <div class="card card-sm-3">
+            <div class=" card-header">
+                <h3>Elenco pesi registrati</h3>
+                <br />
+            </div>
+            <div class="card-body">
+                <div id="Peso">  </div>
+                <br />
+            </div>
+        </div>
+        <div class="card card-sm-3">
+            <div class=" card-header">
+                <center> <h3>Statistiche peso registrati</h3></center>
+                <br />
+            </div>
+            <div class="card-body">
+                <canvas id="PesoChart"></canvas>
+                <br />
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="card card-sm-3">
+        <div class=" card-header">
+            <h3>Non sono stati trovati pesi registrati per il paziente scelto o per il range di date selezionato </h3>
+            <br />
+        </div>
+    </div>
+}
+<script>
+
+    $(document).ready(function () {
+        var data = @(Json.Serialize(Model.Paziente));
+        $("#grid").kendoGrid({
+            dataSource: {
+                data: data,
+
+                schema: {
+
+                    model: {
+
+                        fields: {
+                            id: { type: "number" },
+                            doctorId: { type: "number" },
+                            nome: { type: "string" },
+                            cognome: { type: "string" },
+                            mail: { type: "string" },
+                            girnoAssociazione: {type: "date"}
+                        }
+                    }
+                },
+                pageSize: 5
+            },
+            scrollable: true,
+            sortable: true,
+            filterable:
+            {
+                extra: true,
+                operators:
+                {
+                    string: {
+                        startswith: "Inizia con",
+                        eq: "Uguale a",
+                        neq: "Diverso da",
+
+                        startswith: "Inizia con",
+                        eq: "Uguale a",
+                        neq: "Diverso da"
+
+                    }
+                }
+            },
+            editable: false,
+            pageable: {
+                    pageSizes: true,
+                    buttonCount: 5
+            },
+            pageSize: 5,
+            columns: [
+                { field: "id", title: "IdFitBit" },
+                //{
+                //    field: "doctorId", title: "DoctorId"
+                //},
+                { field: "nome", title: "Nome" },
+                { field: "cognome", title: "Cognome" },
+                { field: "mail", title: "Email" },
+                {
+                    field: "girnoAssociazione",
+                    title: "GirnoAssociazione",
+                    format: "{0:MM/dd/yyyy}",
+                    filterable: {
+                        ui: "datetimepicker"
+                    }
+                },
+            ]
+        });
+    })
+    //grid per i battiti
+    $(document).ready(function () {
+        var dataBattiti = @(Json.Serialize(Model.BattitiperPaziente));
+        $("#Battiti").kendoGrid({
+            dataSource: {
+                data: dataBattiti,
+                schema: {
+
+                    model: {
+
+                        fields: {
+                            id: { type: "number" },
+                            idFitBit: { type: "number" },
+                            frequenza: { type: "number" },
+                            dataRegistrazione: { type: "date" }
+                        }
+                    }
+                },
+                pageSize: 5
+            },
+            scrollable: false,
+            sortable: true,
+            filterable:
+            {
+                extra: true,
+                operators:
+                {
+                    string: {
+                        startswith: "Inizia con",
+                        eq: "Uguale a",
+                        neq: "Diverso da",
+
+                        startswith: "Inizia con",
+                        eq: "Uguale a",
+                        neq: "Diverso da"
+
+                    }
+                }
+            },
+            editable: false,
+            pageable: {
+                pageSizes: true,
+                buttonCount: 5
+            },
+            pageSize: 5,
+            columns: [
+                // { field: "id", title: "Id" },
+                { field: "idFitBit", title: "IdFitBit" },
+                { field: "frequenza", title: "Frequenza Registrata" },
+                { field: "dataRegistrazione", title: "Data", format: "{0:MM/dd/yyyy hh/mm/ss}", }
+
+            ]
+        });
+    });
+    //grid per i percorsi
+    $(document).ready(function () {
+        var dataPercorsi = @(Json.Serialize(Model.Percorsi));
+        $("#percorsi").kendoGrid({
+            dataSource: {
+                data: dataPercorsi,
+                schema: {
+
+                    model: {
+
+                        fields: {
+                            id: { type: "number" },
+                            dataRegistrazione: { type: "date" },
+                            idFitBit: { type: "number" },
+                            km: { type: "number" },
+                            passi: { type: "number" },
+                            mSalita: { type: "number" },
+                            mDiscesa: { type: "number" },
+                            velocitaMedia: { type: "number" },
+                            orarioInizio: { type: "string" },
+                            orarioFine: { type: "string" },
+                        }
+                    }
+                },
+                pageSize: 5
+            },
+            scrollable: true,
+            sortable: true,
+            filterable:
+            {
+                extra: true,
+                operators:
+                {
+                    string: {
+                        startswith: "Inizia con",
+                        eq: "Uguale a",
+                        neq: "Diverso da",
+
+                        startswith: "Inizia con",
+                        eq: "Uguale a",
+                        neq: "Diverso da"
+
+                    }
+                }
+            },
+            editable: false,
+            pageable: {
+                pageSizes: true,
+                buttonCount: 5
+            },
+            pageSize: 5,
+            columns: [
+                //{ field: "id", title: "Id" },
+                { field: "dataRegistrazione", title: "Data", format: "{0:MM/dd/yyyy hh/mm/ss}", },
+                { field: "idFitBit", title: "IdFitBit" },
+                { field: "km", title: "Km" },
+                { field: "passi", title: "Passi" },
+                { field: "mSalita", title: "Metri salita" },
+                { field: "mDiscesa", title: "Metri Discesa" },
+                { field: "velocitaMedia", title: "Velocità media" },
+                { field: "orarioInizio", title: "Inizio" },
+                { field: "orarioFine", title: "Fine" },
+            ]
+        });
+    });
+    //grid peso
+     $(document).ready(function () {
+         var dataPeso = @(Json.Serialize(Model.Peso));
+         $("#Peso").kendoGrid({
+            dataSource: {
+                data: dataPeso,
+                schema: {
+
+                    model: {
+
+                        fields: {
+                            id: { type: "number" },
+                            idFitBit: { type: "number" },
+                            pesoIstantaneo: { type: "number" },
+                            dataRegistrazione: { type: "date" },
+                        }
+                    }
+                },
+                pageSize: 5
+            },
+            scrollable: true,
+            sortable: true,
+            filterable:
+            {
+                extra: true,
+                operators:
+                {
+                    string: {
+                        startswith: "Inizia con",
+                        eq: "Uguale a",
+                        neq: "Diverso da",
+
+                        startswith: "Inizia con",
+                        eq: "Uguale a",
+                        neq: "Diverso da"
+
+                    }
+                }
+            },
+            editable: false,
+            pageable: {
+                    pageSizes: true,
+                    buttonCount: 5
+            },
+            pageSize: 5,
+            columns: [
+                { field: "id", title: "Id" },
+                { field: "idFitBit", title: "IdFitBit" },
+                { field: "pesoIstantaneo", title: "Peso registrato" },
+                { field: "dataRegistrazione", title: "Data", format: "{0:MM/dd/yyyy hh/mm/ss}", },
+            ]
+        });
+    })
+</script>
+<script>
+    //grafico battiti
+    $(document).ready(function () {
+        if (document.getElementById("BattitiChart") != null) {
+            var ctx = document.getElementById("BattitiChart").getContext('2d');
+
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: @(Json.Serialize(Model.DateCoordBattiti.Split(","))),
+                    datasets: [{
+                        label: 'Battito Registrato',
+                        data: @(Json.Serialize(Model.CoordBattiti.Split(" "))),
+                        borderWidth: 2,
+                        backgroundColor: 'rgb(87,75,144)',
+                        borderColor: 'rgb(87,75,144)',
+                        borderWidth: 2.5,
+                        pointBackgroundColor: '#ffffff',
+                        pointRadius: 4
+                    }]
+                },
+                options: {
+                    legend: {
+                        display: false
+                    },
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true,
+                                stepSize: 50
+                            }
+                        }],
+                        xAxes: [{
+                            gridLines: {
+                                display: false
+                            }
+                        }]
+                    },
+                }
+            });
+        };
+    })
+</script>
+<script>
+     //grafico Km Percorsi
+    $(document).ready(function () {
+        if (document.getElementById("KmPercorsiChart") != null) {
+
+                var ctx = document.getElementById("KmPercorsiChart").getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: @(Json.Serialize(Model.DateCoordPercorso.Split(","))),
+                        datasets: [{
+                            label: 'KM Registrai',
+                            data: @(Json.Serialize(Model.CoordPercorso.Split(" "))),
+                            borderWidth: 2,
+                            backgroundColor: 'rgb(87,75,144)',
+                            borderColor: 'rgb(87,75,144)',
+                            borderWidth: 2.5,
+                            pointBackgroundColor: '#ffffff',
+                            pointRadius: 4
+                        }]
+                    },
+                    options: {
+                        legend: {
+                            display: false
+                        },
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true,
+                                    stepSize: 10
+                                }
+                            }],
+                            xAxes: [{
+                                gridLines: {
+                                    display: false
+                                }
+                            }]
+                        },
+                    }
+                });
+            }
+     })
+</script>
+<script>
+     //grafico numero di passi
+    $(document).ready(function () {
+        if (document.getElementById("PassiChart") != null) {
+
+            var ctx = document.getElementById("PassiChart").getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: @(Json.Serialize(Model.DateCoordPercorso.Split(","))),
+                        datasets: [{
+                            label: 'Numero passi Registrai',
+                            data: @(Json.Serialize(Model.CoordPassi.Split(" "))),
+                            borderWidth: 2,
+                            backgroundColor: 'rgb(87,75,144)',
+                            borderColor: 'rgb(87,75,144)',
+                            borderWidth: 2.5,
+                            pointBackgroundColor: '#ffffff',
+                            pointRadius: 4
+                        }]
+                    },
+                    options: {
+                        legend: {
+                            display: false
+                        },
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true,
+                                    stepSize: 1000
+                                }
+                            }],
+                            xAxes: [{
+                                gridLines: {
+                                    display: false
+                                }
+                            }]
+                        },
+                    }
+                });
+            }
+     })
+</script>
+<script>
+     //grafico durata attività
+    $(document).ready(function () {
+        if (document.getElementById("DurataChart") != null) {
+
+            var ctx = document.getElementById("DurataChart").getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: @(Json.Serialize(Model.DateCoordPercorso.Split(","))),
+                        datasets: [{
+                            label: 'Minuti attività',
+                            data: @(Json.Serialize(Model.CoorddurataAttività.Split(" "))),
+                            borderWidth: 2,
+                            backgroundColor: 'rgb(87,75,144)',
+                            borderColor: 'rgb(87,75,144)',
+                            borderWidth: 2.5,
+                            pointBackgroundColor: '#ffffff',
+                            pointRadius: 4
+                        }]
+                    },
+                    options: {
+                        legend: {
+                            display: false
+                        },
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true,
+                                    stepSize: 60
+                                }
+                            }],
+                            xAxes: [{
+                                gridLines: {
+                                    display: false
+                                }
+                            }]
+                        },
+                    }
+                });
+            }
+     })
+</script>
+
+<script>
+    //grafico pesi registrati     
+    $(document).ready(function () {
+        if (document.getElementById("PesoChart") != null) {
+
+                var ctx = document.getElementById("PesoChart").getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: @(Json.Serialize(Model.DateCoordPeso.Split(","))),
+                        datasets: [{
+                            label: 'KGgRegistrai',
+                            data: @(Json.Serialize(Model.CoordPeso.Split(" "))),
+                            borderWidth: 2,
+                            backgroundColor: 'rgb(87,75,144)',
+                            borderColor: 'rgb(87,75,144)',
+                            borderWidth: 2.5,
+                            pointBackgroundColor: '#ffffff',
+                            pointRadius: 4
+                        }]
+                    },
+                    options: {
+                        legend: {
+                            display: false
+                        },
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true,
+                                    stepSize: 30
+                                }
+                            }],
+                            xAxes: [{
+                                gridLines: {
+                                    display: false
+                                }
+                            }]
+                        },
+                    }
+                });
+            }
+     })
+</script>
+

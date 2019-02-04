@@ -1,0 +1,56 @@
+﻿@using Microsoft.AspNetCore.Mvc
+@model HeartHealthy.Models.Users
+@{
+    ViewData["Title"] = "Home Page";
+}
+@{
+    Layout = "_LayoutLogin";
+}
+@using (Html.BeginForm("Registrati", "Login", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+<div class="form-group">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <label for="nome">Nome</label>
+    <input id="nome" type="text" class="form-control" name="nome" required autofocus>
+</div>
+    <div class="form-group">
+        <label for="Cognome">Cognome</label>
+        <input id="Cognome" type="text" class="form-control" name="Cognome" required autofocus>
+    </div>
+    <div class="form-group">
+        <label for="email">E-Mail Address</label>
+        <input id="email" type="email" class="form-control" name="email" required>
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input id="password" type="password" class="form-control" name="password" required data-eye>
+    </div>
+
+    <div class="form-group">
+        <label>
+            <input type="checkbox" id="cond" name="aggree" value="1"> Accetta i termini di condizioni d'uso'
+        </label>
+    </div>
+
+    <div class="form-group no-margin">
+        <button type="submit" onclick="return Function()" class="btn btn-primary btn-block">
+            Registrati
+        </button>
+    </div>
+    <div class="margin-top20 text-center">
+        Hai già un account? @Html.ActionLink("Login","Index", "Login")
+    </div>
+}
+<script>
+    function Function() {
+        a = document.getElementById("cond").checked;
+        if (a == false) {
+            alert("accettare i termini e condizioni d'uso ");
+            return false;
+        }
+        return true;
+
+    }
+</script>
