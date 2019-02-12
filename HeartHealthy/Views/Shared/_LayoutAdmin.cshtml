@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport">
-    <title>Sane Hearth</title>
+    <title>Hearth Healthy</title>
     <link rel="icon" href="~/Image/favicon.ico" />
     <link rel="stylesheet" href="~/stisla_admin_v1.0.0/dist/modules/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="~/stisla_admin_v1.0.0/dist/modules/ionicons/css/ionicons.min.css">
@@ -22,6 +22,46 @@
 
     <script src="~/Kendo/2018.1.117/js/jquery.min.js"></script>
     <script src="~/Kendo/2018.1.117/js/kendo.all.min.js"></script>
+    <script>document.addEventListener("DOMContentLoaded", function() {
+            if (document.getElementById("myChart") != null) {
+                var ctx = document.getElementById("myChart").getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                        datasets: [{
+                            label: 'Statistics',
+                            data: [460, 458, 330, 502, 430, 610, 488],
+                            borderWidth: 2,
+                            backgroundColor: 'rgb(0,70,134)',
+                            borderColor: 'rgb(0,70,134)',
+                            borderWidth: 2.5,
+                            pointBackgroundColor: '#ffffff',
+                            pointRadius: 4
+                        }]
+                    },
+                    options: {
+                        legend: {
+                            display: false
+                        },
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true,
+                                    stepSize: 150
+                                }
+                            }],
+                            xAxes: [{
+                                gridLines: {
+                                    display: false
+                                }
+                            }]
+                        },
+                    }
+                });
+            }
+            ;
+});</script>
     <style>
 
         a.my-class {
@@ -71,7 +111,7 @@
             <div class="main-sidebar">
                 <aside id="sidebar-wrapper">
                     <div class="sidebar-brand">
-                        <bold> @Html.ActionLink("SANE HEARTH", "Index", "Admin")</bold>
+                        <bold> @Html.ActionLink("HEART HEALTHY", "Index", "Admin")</bold>
                     </div>
                     <div class="sidebar-user">
                         <div class="sidebar-user-picture">
@@ -122,41 +162,7 @@
     <script src="~/stisla_admin_v1.0.0//dist/modules/chart.min.js"></script>
     <script src="~/stisla_admin_v1.0.0//dist/modules/summernote/summernote-lite.js"></script>
     <script>
-var ctx = document.getElementById("myChart").getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-                datasets: [{
-                    label: 'Statistics',
-                    data: [460, 458, 330, 502, 430, 610, 488],
-                    borderWidth: 2,
-                    backgroundColor: 'rgb(87,75,144)',
-                    borderColor: 'rgb(87,75,144)',
-                    borderWidth: 2.5,
-                    pointBackgroundColor: '#ffffff',
-                    pointRadius: 4
-                }]
-            },
-            options: {
-                legend: {
-                    display: false
-                },
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true,
-                            stepSize: 150
-                        }
-                    }],
-                    xAxes: [{
-                        gridLines: {
-                            display: false
-                        }
-                    }]
-                },
-            }
-        });</script>
+</script>
     <script src="~/stisla_admin_v1.0.0//dist/js/scripts.js"></script>
 </body>
 </html>

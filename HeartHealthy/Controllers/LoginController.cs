@@ -143,13 +143,13 @@ namespace HeartHealthy.Controllers
                     users.Password = randomPassword;
                     db.Update(users,"Users");
                     string to = mail;
-                    string from = "csanhearth@gmail.com";
+                    string from = "cshearthealthy@gmail.com";
                     MailMessage message = new MailMessage(from, to);
                     message.Subject = "Richiesta cambio Password";
                     message.Body = @"Grazie per averci contattato! eccoti la tua password temporanea "+randomPassword;
                     SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
                     client.EnableSsl = true;
-                    client.Credentials= new NetworkCredential("csanhearth@gmail.com", "support18!");
+                    client.Credentials= new NetworkCredential("cshearthealthy@gmail.com", "zYbxum-ficqo9-hojguq");
                     client.Send(message);
                     return View("ForgotThanks");
                 }

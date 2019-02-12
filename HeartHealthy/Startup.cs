@@ -145,6 +145,7 @@ namespace HeartHealthy
                 db.Insert(new Users { Nome = "Mario", Cognome = "Rossi", Email = "mario@gmail.com", Password = "rossi", FP = false, Doctor = true });
                 db.Insert(new Users { Nome = "Paolo", Cognome = "Verdi", Email = "paolo@gmail.com", Password = "verdi", FP = false, Doctor = true });
                 */
+
             }
         }
     }

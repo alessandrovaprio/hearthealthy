@@ -1,9 +1,9 @@
 ﻿<Properties StartupConfiguration="{78128934-7608-471B-9519-6986F990E41E}|Default">
   <MonoDevelop.Ide.ItemProperties.HeartHealthy PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="HeartHealthy/Controllers/AdminController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="HeartHealthy/wwwroot/stisla_admin_v1.0.0/dist/css/custom.css">
     <Files>
       <File FileName="HeartHealthy/appsettings.json" Line="6" Column="1" />
-      <File FileName="HeartHealthy/Startup.cs" Line="43" Column="84" />
+      <File FileName="HeartHealthy/Startup.cs" Line="146" Column="150" />
       <File FileName="HeartHealthy/wwwroot/stisla_admin_v1.0.0/Documentation - Stisla.url" Line="1" Column="1" />
       <File FileName="HeartHealthy/wwwroot/stisla_admin_v1.0.0/templates/login.html" Line="1" Column="1" />
       <File FileName="HeartHealthy/Controllers/LoginController.cs" Line="1" Column="1" />
@@ -21,16 +21,31 @@
       <File FileName="HeartHealthy/Models/DoctorModels.cs" Line="1" Column="1" />
       <File FileName="HeartHealthy/Properties/launchSettings.json" Line="1" Column="1" />
       <File FileName="HeartHealthy/Models/UsersView.cs" Line="8" Column="2" />
-      <File FileName="HeartHealthy/Views/Shared/_Layout.cshtml" Line="93" Column="40" />
-      <File FileName="HeartHealthy/Views/Shared/_LayoutAdmin.cshtml" Line="109" Column="46" />
+      <File FileName="HeartHealthy/Views/Shared/_Layout.cshtml" Line="7" Column="35" />
+      <File FileName="HeartHealthy/Views/Shared/_LayoutAdmin.cshtml" Line="114" Column="55" />
       <File FileName="HeartHealthy/Views/Shared/_LayoutLogin.cshtml" Line="30" Column="15" />
       <File FileName="HeartHealthy/Views/Shared/Error.cshtml" Line="1" Column="1" />
       <File FileName="HeartHealthy/Views/_ViewImports.cshtml" Line="1" Column="1" />
       <File FileName="HeartHealthy/Views/_ViewStart.cshtml" Line="1" Column="1" />
       <File FileName="HeartHealthy/Views/Login/Index.cshtml" Line="1" Column="1" />
-      <File FileName="HeartHealthy/wwwroot/my-login-1.0.0/css/my-login.css" Line="12" Column="11" />
-      <File FileName="HeartHealthy/Controllers/DoctorController.cs" Line="216" Column="82" />
-      <File FileName="HeartHealthy/Controllers/AdminController.cs" Line="29" Column="131" />
+      <File FileName="HeartHealthy/wwwroot/my-login-1.0.0/css/my-login.css" Line="6" Column="27" />
+      <File FileName="HeartHealthy/Controllers/DoctorController.cs" Line="216" Column="41" />
+      <File FileName="HeartHealthy/Controllers/AdminController.cs" Line="196" Column="41" />
+      <File FileName="HeartHealthy/Views/Admin/Index.cshtml" Line="16" Column="45" />
+      <File FileName="HeartHealthy/wwwroot/stisla_admin_v1.0.0/dist/css/skins/blue.css" Line="119" Column="2" />
+      <File FileName="HeartHealthy/wwwroot/stisla_admin_v1.0.0/dist/modules/bootstrap/css/bootstrap.css" Line="8" Column="20" />
+      <File FileName="HeartHealthy/Views/Login/ChangePassword.cshtml" Line="1" Column="1" />
+      <File FileName="HeartHealthy/Views/Login/Forgot.cshtml" Line="1" Column="1" />
+      <File FileName="HeartHealthy/Views/Login/ForgotThanks.cshtml" Line="1" Column="1" />
+      <File FileName="HeartHealthy/Views/Login/Registrati.cshtml" Line="1" Column="1" />
+      <File FileName="HeartHealthy/wwwroot/stisla_admin_v1.0.0/dist/css/style.css" Line="219" Column="24" />
+      <File FileName="HeartHealthy/wwwroot/stisla_admin_v1.0.0/dist/css/skins/lightblue.css" Line="119" Column="2" />
+      <File FileName="HeartHealthy/wwwroot/stisla_admin_v1.0.0/dist/css/skins/darksidebar.css" Line="4" Column="2" />
+      <File FileName="HeartHealthy/wwwroot/stisla_admin_v1.0.0/dist/css/skins/deeppurple.css" Line="120" Column="27" />
+      <File FileName="HeartHealthy/Views/Admin/Profilo.cshtml" Line="1" Column="1" />
+      <File FileName="HeartHealthy/Views/Admin/UpdateProfilo.cshtml" Line="32" Column="26" />
+      <File FileName="HeartHealthy/Models/ProfiloView.cs" Line="15" Column="23" />
+      <File FileName="HeartHealthy/wwwroot/stisla_admin_v1.0.0/dist/css/custom.css" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

@@ -9,7 +9,7 @@
 <h1 class="section-header">
     <div>Modifica Profilo</div>
 </h1>
-@using (Html.BeginForm("Update", "Admin", new { id = User.Claims.ToList().ElementAt(0).Value, pass = Model.Password } , FormMethod.Post))
+@using (Html.BeginForm("Update", "Admin", new { id = User.Claims.ToList().ElementAt(0).Value, pass = Model.Password, ruolo=Model.Ruolo } , FormMethod.Post))
 {
     @Html.AntiForgeryToken()
     <div class="card card-sm-3">
@@ -29,6 +29,10 @@
                     <tr>
                         <td> Email Utente</td>
                         <td><input id="email" type="email" class="form-control" name="email" value="@Model.Email" required autofocus></td>
+                    </tr>
+                    <tr>
+                        <td> Ruolo Utente</td>
+                        <td><input readonly id="ruolo" type="text" class="form-control" name="ruolo" value="@Model.Ruolo" required autofocus></td>
                     </tr>
                     <tr>
                         <td>

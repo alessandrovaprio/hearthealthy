@@ -187,13 +187,14 @@ namespace HeartHealthy.Controllers
             }
         }
 
-        public IActionResult Update(int id, string pass, Users modello)
+        public IActionResult Update(int id, string pass, string ruolo,Users modello)
         {
             using (var db = new HealthDataContext(SQLiteTools.GetDataProvider(), connString))
             {
 
                 modello.Id = id;
                 modello.Password = pass;
+                modello.Doctor = ruolo.ToLower() == "doctor" ? true : false;
                 db.Update(modello);
                 return RedirectToAction("Profilo", "Admin", new { id = modello.Id });
             }
