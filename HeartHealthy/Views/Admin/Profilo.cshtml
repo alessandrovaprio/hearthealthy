@@ -3,7 +3,6 @@
 @using LinqToDB;
 @using LinqToDB.DataProvider.SQLite;
 @model HeartHealthy.Models.ProfiloView
-
 @{
     Layout = "_LayoutAdmin";
 }
@@ -40,8 +39,65 @@
                     <td><h3>@Model.Ruolo</h3></td>
             </tbody>
         </table>
-        <button type="button" class="btn btn-primary btn-lg"> @Html.ActionLink("Modifica Informazioni", "UpdateProfilo", "Admin", new { id = Model.Id }, new { @class = "my-class" })</button>
+        <!--<button type="button" class="btn btn-primary btn-lg"> @Html.ActionLink("Modifica Informazioni", "UpdateProfilo", "Admin", new { id = Model.Id }, new { @class = "my-class" })</button>-->
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#UpdateProfileModal">Open Modal</button>
         <button type="button" class="btn btn-primary btn-lg">@Html.ActionLink("Reimposta Password", "UpdatePassword", "Admin", new { pass = Model.Password }, new { @class = "my-class" })</button>
     </div>
+</div><!-- Modal -->
+<div id="UpdateProfileModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modifica profilo</h4>
+            </div>
+            <div>
 
+                @using (Html.BeginForm("Update", "Admin", new { id = User.Claims.ToList().ElementAt(0).Value, pass = Model.Password, ruolo=Model.Ruolo } , FormMethod.Post))
+                {
+                //@Html.AntiForgeryToken()
+                <div class="card card-sm-3">
+                    <div class="card-body">
+                        <br />
+                        <form method="POST">
+                            <table border="0">
+                                <tr></tr>
+                                <tr>
+                                    <td> Nome Utente</td>
+                                    <td><input id="nome" class="form-control" name="nome" value="@Model.Nome" required autofocus></td>
+                                </tr>
+                                <tr>
+                                    <td> Cognome Utente</td>
+                                    <td><input id="cognome" class="form-control" name="cognome" value="@Model.Cognome" required autofocus></td>
+                                </tr>
+                                <tr>
+                                    <td> Email Utente</td>
+                                    <td><input id="email" type="email" class="form-control" name="email" value="@Model.Email" required autofocus></td>
+                                </tr>
+                                <tr>
+                                    <td> Ruolo Utente</td>
+                                    <td><input readonly id="ruolo" type="text" class="form-control" name="ruolo" value="@Model.Ruolo" required autofocus></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button type="submit" class="btn btn-primary btn-lg">
+                                            Modifica
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </form>
+                        <br />
+                    </div>
+                </div>
+                }
+
+            </div>
+            <!--<div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>-->
+        </div>
+    </div>
 </div>
