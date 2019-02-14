@@ -16,7 +16,7 @@
         </h3>
         <br />
     </div>
-    <div class="card-body">
+    <div class="card-body p-3">
         <table class="table border=0 table-hover">
             <thead>
                 <img alt="image" src="~/stisla_admin_v1.0.0//dist/img/avatar/admin.jpeg" width="150">
@@ -39,18 +39,22 @@
                     <td><h3>@Model.Ruolo</h3></td>
             </tbody>
         </table>
+        <div class="text-right">
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#UpdateProfileModal">Modifica Profilo</button>
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#UpdatePasswordModal">Modifica Password</button>
+        </div>
         <!--<button type="button" class="btn btn-primary btn-lg"> @Html.ActionLink("Modifica Informazioni", "UpdateProfilo", "Admin", new { id = Model.Id }, new { @class = "my-class" })</button>-->
-        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#UpdateProfileModal">Open Modal</button>
-        <button type="button" class="btn btn-primary btn-lg">@Html.ActionLink("Reimposta Password", "UpdatePassword", "Admin", new { pass = Model.Password }, new { @class = "my-class" })</button>
+        <!--<button type="button" class="btn btn-primary btn-lg">@Html.ActionLink("Reimposta Password", "UpdatePassword", "Admin", new { pass = Model.Password }, new { @class = "my-class" })</button>-->
     </div>
 </div><!-- Modal -->
 <div id="UpdateProfileModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <!-- Modal content-->
         <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <div >
                 <h4 class="modal-title">Modifica profilo</h4>
+               
+                <!--<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>-->
             </div>
             <div>
 
@@ -60,7 +64,7 @@
                 <div class="card card-sm-3">
                     <div class="card-body">
                         <br />
-                        <form method="POST">
+                        <!--<form method="POST">-->
                             <table border="0">
                                 <tr></tr>
                                 <tr>
@@ -85,19 +89,91 @@
                                             Modifica
                                         </button>
                                     </td>
+                                    
                                 </tr>
                             </table>
 
-                        </form>
+                        <!--</form>-->
                         <br />
                     </div>
                 </div>
                 }
 
             </div>
-            <!--<div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>-->
+            
+        </div>
+    </div>
+</div>
+
+<div id="UpdatePasswordModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div>
+                <h4 class="modal-title">Modifica password</h4>
+
+                <!--<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>-->
+            </div>
+            <div>
+
+                <script>
+    function validateForm() {
+        var curr = document.getElementById('current').value;
+        var n = document.getElementById('new').value;
+        var n2 = document.getElementById('new2').value;
+
+        if (curr != "@Model.Password") {
+            alert("Password corrente errata!");
+            return false;
+        }
+
+        if (n2 != n) {
+            alert("La conferma della nuova password non corrisponde!");
+            return false;
+
+        }
+        return true;
+    }
+                </script>
+
+                @using (Html.BeginForm("ChangePassword", "Admin", new { id = User.Claims.ToList().ElementAt(0).Value }, FormMethod.Post))
+                {
+
+                    @Html.AntiForgeryToken()
+                    <div class="card card-sm-3">
+                        <div class="card-body">
+                            <br />
+                            
+                                <table border="0">
+                                    <tr></tr>
+                                    <tr>
+                                        <td> Password Corrente</td>
+                                        <td><input type="password" value="" id="current" class="form-control" name="current" required data-eye></td>
+                                    </tr>
+                                    <tr>
+                                        <td> Nuova Password</td>
+                                        <td><input type="password" value="" id="new" class="form-control" name="new" required data-eye></td>
+                                    </tr>
+                                    <tr>
+                                        <td> Conferma nuova Password</td>
+                                        <td><input type="password" value="" id="new2" class="form-control" name="Password" required data-eye></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button type="submit" class="btn btn-primary btn-lg" onclick="return validateForm();">
+                                                Modifica
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </table>
+                            <br />
+                        </div>
+                    </div>
+
+                }
+
+            </div>
+
         </div>
     </div>
 </div>

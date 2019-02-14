@@ -49,7 +49,7 @@
     transform-origin: 70% 70%;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
-    display: none;
+    
 }
 body {
 	background-color: #F6F6F6;
@@ -231,12 +231,12 @@ a:not(.btn-social-icon):not(.btn-social):not(.page-link) .fab {
 .btn-primary {
     background-color: #004679;
 }
-.btn-primary:focus,
-.btn-primary:focus:active,
-.btn-primary:active,
-.btn-primary:hover {
-	background-color: #4b3f82 !important;
-}
+    .btn-primary:focus,
+    .btn-primary:focus:active,
+    .btn-primary:active,
+    .btn-primary:hover {
+        background-color: #0080ff !important;
+    }
 .btn-round {
 	border-radius: 30px;
 	padding-left: 34px;

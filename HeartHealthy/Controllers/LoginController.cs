@@ -66,7 +66,7 @@ namespace HeartHealthy.Controllers
                     await HttpContext.SignInAsync(
                             scheme: CookieAuthenticationDefaults.AuthenticationScheme,
                             principal: principal);
-                    if (users.Doctor == true)
+                    if (users.Doctor)
                     {
                         return RedirectToAction("Index", "Doctor");
                     }
@@ -83,7 +83,7 @@ namespace HeartHealthy.Controllers
                             );
             return RedirectToAction("Index");
         }
-        public ActionResult ChangePassword (string oldPsw,string newPsw)
+        public async Task<IActionResult> ChangePassword (string oldPsw,string newPsw)
         {
             using (var db = new HealthDataContext(SQLiteTools.GetDataProvider(), connString))
             {
@@ -102,7 +102,31 @@ namespace HeartHealthy.Controllers
                     Email = users.Email,
                     Password = users.Password
                 };
-                return RedirectToAction("Index","Login");
+                List<Claim> claims = new List<Claim>
+                     {
+                         new Claim(ClaimTypes.SerialNumber, users.Id.ToString()),
+                         new Claim(ClaimTypes.Name, users.Nome),
+                         new Claim(ClaimTypes.Email, users.Email)
+                    };
+
+                // create identity
+                ClaimsIdentity identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+                // create principal
+                ClaimsPrincipal principal = new ClaimsPrincipal(identity);
+
+                // sign-in
+                await HttpContext.SignInAsync(
+                        scheme: CookieAuthenticationDefaults.AuthenticationScheme,
+                        principal: principal);
+
+                if (users.Doctor)
+                {
+                    return RedirectToAction("Index", "Doctor");
+                }
+                else
+                    return RedirectToAction("Index", "Admin");
+                //return RedirectToAction("Index","Login");
             }
         }
         public  ActionResult ResgistratiToView()
@@ -146,7 +170,7 @@ namespace HeartHealthy.Controllers
                     string from = "cshearthealthy@gmail.com";
                     MailMessage message = new MailMessage(from, to);
                     message.Subject = "Richiesta cambio Password";
-                    message.Body = @"Grazie per averci contattato! eccoti la tua password temporanea "+randomPassword;
+                    message.Body = @"Grazie per averci contattato! ti forniamo la tua password temporanea "+randomPassword;
                     SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
                     client.EnableSsl = true;
                     client.Credentials= new NetworkCredential("cshearthealthy@gmail.com", "zYbxum-ficqo9-hojguq");
