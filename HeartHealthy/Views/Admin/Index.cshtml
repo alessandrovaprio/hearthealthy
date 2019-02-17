@@ -11,52 +11,110 @@
     <div>Home</div>
 </h1>
 <div class="row">
+
+   
     <div class="col-lg-3">
-        <div class="card card-sm-3">
-            <div class="card-icon bg-primary">
-                <i class="ion ion-person"></i>
-            </div>
-            <div class="card-wrap">
-                <div class="card-header">
-                    <h4>Utenti</h4>
+        <a asp-controller="Admin"
+           asp-action="ElencoUser"
+            asp-route-id=@User.Claims.ToList().ElementAt(0).Value
+            asp-route-all=true
+            asp-route-doctor=false
+            >
+            <div class="card card-sm-3">
+                <div class="card-icon bg-primary">
+                    <i class="ion ion-person"></i>
                 </div>
-                <div class="card-body">
-                    @Model.Utenti
+                <div class="card-wrap">
+                    <div class="card-header">
+                        <h4>Utenti</h4>
+                    </div>
+                    <div class="card-body">
+                        @Model.Utenti
+                    </div>
                 </div>
             </div>
-        </div>
+        </a>
     </div>
+        
+    <div class="col-lg-3 col-md-6 col-12">
+        <a asp-controller="Admin"
+           asp-action="ElencoUser"
+           asp-route-id=@User.Claims.ToList().ElementAt(0).Value
+           asp-route-all=false
+           asp-route-doctor=false>
+            <div class="card card-sm-3">
+                <div class="card-icon bg-primary">
+                    <i class="ion ion-person"></i>
+                </div>
+                <div class="card-wrap">
+                    <div class="card-header">
+                        <h4>Admin</h4>
+                    </div>
+                    <div class="card-body">
+                        @Model.Admin
+                    </div>
+                </div>
+            </div>
+          </a>
+    </div>
+    <div class="col-lg-3 col-md-6 col-12">
+        <a asp-controller="Admin"
+           asp-action="ElencoUser"
+           asp-route-id=@User.Claims.ToList().ElementAt(0).Value
+           asp-route-all=false
+           asp-route-doctor=true>
+            <div class="card card-sm-3">
+                <div class="card-icon bg-primary">
+                    <i class="ion ion-person"></i>
+                </div>
+                <div class="card-wrap">
+                    <div class="card-header">
+                        <h4>Dottori</h4>
+                    </div>
+                    <div class="card-body">
+                        @Model.Dottori
+                    </div>
+                </div>
+            </div>
+           </a>
+        </div>
 
     <div class="col-lg-3 col-md-6 col-12">
-        <div class="card card-sm-3">
-            <div class="card-icon bg-primary">
-                <i class="ion ion-person"></i>
-            </div>
-            <div class="card-wrap">
-                <div class="card-header">
-                    <h4>Admin</h4>
+        <a asp-controller="Admin"
+           asp-action="ElencoFitBitAssociati"
+           >
+            <div class="card card-sm-3">
+                <div class="card-icon bg-primary">
+                    <i class="ion ion-person"></i>
                 </div>
-                <div class="card-body">
-                    @Model.Admin
+                <div class="card-wrap">
+                    <div class="card-header">
+                        <h4>Fitbit associati</h4>
+                    </div>
+                    <div class="card-body">
+                        @Model.Fitbit
+                    </div>
                 </div>
             </div>
+          </a>
         </div>
-    </div>
 
     <div class="col-lg-3 col-md-6 col-12">
-        <div class="card card-sm-3">
-            <div class="card-icon bg-primary">
-                <i class="ion ion-person"></i>
-            </div>
-            <div class="card-wrap">
-                <div class="card-header">
-                    <h4>Dottori</h4>
+        <a asp-controller="Admin"
+           asp-action="ElencoFitBitNonAssociati">
+            <div class="card card-sm-3">
+                <div class="card-icon bg-primary">
+                    <i class="ion ion-person"></i>
                 </div>
-                <div class="card-body">
-                    @Model.Dottori
+                <div class="card-wrap">
+                    <div class="card-header">
+                        <h4>Fitbit da associare</h4>
+                    </div>
+                    <div class="card-body">
+                        @Model.FitbitNoReg
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-
+          </a>
+       </div>
 </div>

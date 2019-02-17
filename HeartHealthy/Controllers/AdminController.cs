@@ -33,27 +33,37 @@ namespace HeartHealthy.Controllers
                 AdminView modello = new AdminView();
 
                 var users = db.GetUsers;
+                var fitbits = db.GetFitbits;
 
                 modello.Admin = 0;
                 modello.Dottori = 0;
+                modello.Fitbit = 0;
+                modello.FitbitNoReg = 0;
+
+                foreach(var fitbit in fitbits){
+                    if (fitbit.DoctorId != null)
+                        modello.Fitbit++;
+                    else
+                        modello.FitbitNoReg++;
+                }
                 if (users == null)
                 {
                     modello.Utenti = 0;
-                    return View(modello);
+
                 }
                 else
                 {
                     foreach (var User in users)
                     {
                         modello.Utenti++;
-                        if (User.Doctor == true)
+                        if (User.Doctor)
                             modello.Dottori++;
                         else
                             modello.Admin++;
                     }
-                    return View(modello);
-                }
 
+                }
+                return View(modello);
             }
         }
         public IActionResult Profilo(int id)
@@ -106,13 +116,23 @@ namespace HeartHealthy.Controllers
             }
         }
 
-        public IActionResult ElencoUser(int id)
+        public IActionResult ElencoUser(int id,bool all,bool doctor)
         {
             using (var db = new HealthDataContext(SQLiteTools.GetDataProvider(), connString))
             {
                 List<UsersView> modello = new List<UsersView>();
 
                 var users = db.GetUsers.Where(u => u.Id != id);
+                ViewData["userstype"] = "Utenti";
+                if (!all){
+                    users = db.GetUsers.Where(u => u.Id != id && u.Doctor == doctor);
+                    if(doctor)
+                        ViewData["userstype"] = "Dottori";
+                    else
+                        ViewData["userstype"] = "Amministratori";
+                }
+                    
+
 
                 if (users == null)
                 {

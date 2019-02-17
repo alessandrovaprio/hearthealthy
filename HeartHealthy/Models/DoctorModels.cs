@@ -11,6 +11,8 @@ namespace HeartHealthy.Models
         public List<Allenamento> Allenamenti { get; set; }
         public int AllenmentiSettimana { get; set; }
         public int Battiti { get; set; }
+        public int AllenamentiTot { get; set; }
+
         
     }
 }

@@ -10,11 +10,11 @@
 <div class="card card-sm-3">
     <div class=" card-header">
         <h3>
-            Elenco utenti registrati
+            Elenco @ViewData["userstype"] Registrati
         </h3>
         <br />
     </div>
-    <div class="card-body">
+    <div class="card-body p-5">
         <div id="grid">  </div>
     </div>
 </div>
@@ -43,6 +43,16 @@
             sortable: true,
             filterable: true,
             editable: false,
+            filter: { field: "Nome", operator: "equal", value: "Paolo" },
+
+            filterMenuInit: function(e) {
+             if (e.field == "name") {
+                  alert("apply Filter");
+                  //var filter = []
+                  // Generate filters
+                  grid.dataSource.filter({ field: "Nome", operator: "equal", value: "Paolo" });
+              }
+            },
             pageable: {
                 pageSizes: true,
                 buttonCount: 5
@@ -55,16 +65,18 @@
                 { field: "doctor", title: "Doctor" },
                 { command: { name: "ModificaRuolo", click: Change }, title:"Modifica Ruolo" }
             ]
+
         });
     })
 
     function Change(e) {
         e.preventDefault();
         var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
-        
+
         var i = dataItem.id;
-        
+
         window.location.href = '@Url.Action("UpdateRuolo", "Admin", new { id = "ID", idAdmin= "II"})'.replace("ID", i).replace("II", @User.Claims.ToList().ElementAt(0).Value);
     }
+
 </script>
 

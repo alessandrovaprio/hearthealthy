@@ -6,54 +6,80 @@
 @*<section class="section">*@
     <div class="row">
         <div class="col-lg-3">
-            <div class="card card-sm-3">
-                <div class="card-icon bg-primary">
-                    <i class="ion ion-person" ></i>
-                </div>
-                <div class="card-wrap">
-                    <div class="card-header">
-                        <h4>Totale pazienti assegnati</h4>
+            <a asp-controller="Doctor"
+               asp-action="MonitoraggioToView">
+                <div class="card card-sm-3">
+                    <div class="card-icon bg-primary">
+                        <i class="ion ion-person"></i>
                     </div>
-                    <div class="card-body" >
-                        @Model.fitbits.Count
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Vai al monitoraggio</h4>
+                        </div>
+                        <div class="card-body">
+                            @Model.fitbits.Count()
+                        </div>
                     </div>
                 </div>
+                </a>
+</div>
 
-            </div>
-        </div>
-   
         <div class="col-lg-3 col-md-6 col-12">
-            <div class="card card-sm-3">
-                <div class="card-icon bg-primary">
-                    <i class="ion ion-person"></i>
-                </div>
-                <div class="card-wrap">
-                    <div class="card-header">
-                        <h4>Allenamenti assegnati questa settimana</h4>
+            <a asp-controller="Doctor"
+               asp-action="AllenamentoToView">
+                <div class="card card-sm-3">
+                    <div class="card-icon bg-primary">
+                        <i class="ion ion-person"></i>
                     </div>
-                    <div class="card-body">
-                        @Model.AllenmentiSettimana
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Allenamenti assegnati</h4>
+                        </div>
+                        <div class="card-body">
+                            @Model.AllenamentiTot
+                        </div>
                     </div>
                 </div>
+             </a>
+        </div>
 
-            </div>
+        <div class="col-lg-3 col-md-6 col-12">
+            <a asp-controller="Doctor"
+               asp-action="AllenamentoToView">
+                <div class="card card-sm-3">
+                    <div class="card-icon bg-primary">
+                        <i class="ion ion-person"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Allenamenti assegnati questa settimana</h4>
+                        </div>
+                        <div class="card-body">
+                            @Model.AllenmentiSettimana
+                        </div>
+                    </div>
+                </div>
+              </a>
         </div>
     
         <div class="col-lg-3 col-md-6 col-12">
-            <div class="card card-sm-3">
-                <div class="card-icon bg-primary">
-                    <i class="ion ion-person"></i>
-                </div>
-                <div class="card-wrap">
-                    <div class="card-header">
-                        <h4>Totale battiti registrati oggi </h4>
+            <a asp-controller="Doctor"
+               asp-action="MonitoraggioToView">
+                <div class="card card-sm-3">
+                    <div class="card-icon bg-primary">
+                        <i class="ion ion-person"></i>
                     </div>
-                    <div class="card-body">
-                        @Model.Battiti
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Totale battiti registrati oggi </h4>
+                        </div>
+                        <div class="card-body">
+                            @Model.Battiti
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
+                </a>
+</div>
     </div>
     <div class="card card-sm-3">
         <div class=" card-header">

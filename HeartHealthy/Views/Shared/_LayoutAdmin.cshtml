@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport">
-    <title>Hearth Healthy</title>
+    <title>Heart Healthy</title>
     <link rel="icon" href="~/Image/favicon.ico" />
     <link rel="stylesheet" href="~/stisla_admin_v1.0.0/dist/modules/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="~/stisla_admin_v1.0.0/dist/modules/ionicons/css/ionicons.min.css">
@@ -91,15 +91,15 @@
             <div class="navbar-bg"></div>
             <nav class="navbar navbar-expand-lg main-navbar">
                 <form class="form-inline mr-auto">
-                    <ul class="navbar-nav mr-3">
+                    <!--<ul class="navbar-nav mr-3">
                         <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="ion ion-navicon-round"></i></a></li>
-                    </ul>
+                    </ul>-->
                 </form>
                 <ul class="navbar-nav navbar-right">
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
                             <i class="ion ion-android-person d-lg-none"></i>
-                            <div class="d-sm-none d-lg-inline-block">Hi, @User.Identity.Name</div>
+                            <div class="d-sm-none d-lg-inline-block">Benvenuto, @User.Identity.Name</div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <center><bold><i class="ion ion-android-person"></i>  @Html.ActionLink("Profilo", "Profilo", "Admin", new { id=User.Claims.ToList().ElementAt(0).Value},null)</bold></center>
@@ -108,7 +108,7 @@
                     </li>
                 </ul>
             </nav>
-            <div class="main-sidebar">
+            <!--<div class="main-sidebar">
                 <aside id="sidebar-wrapper">
                     <div class="sidebar-brand">
                         <bold> @Html.ActionLink("HEART HEALTHY", "Index", "Admin")</bold>
@@ -123,8 +123,8 @@
                                 @User.Identity.Name
                             </div>
                         </div>
-                    </div>
-                    <ul class="sidebar-menu">
+                    </div>-->
+                    <!--<ul class="sidebar-menu">
                         <li class="menu-header">Strumenti</li>
                         <li>
                             <a href="#" class="has-dropdown"><i class="ion ion-ios-albums-outline"></i><span>Strumenti</span></a>
@@ -135,7 +135,7 @@
                                 <li> @Html.ActionLink("Elenco dei FitBit da associare", "ElencoFitBitNonAssociati", "Admin")</li>
                             </ol>
                         </li>
-                    </ul>
+                    </ul>-->
                 </aside>
             </div>
             <div class="main-content">
@@ -144,6 +144,18 @@
 
                 </section>
         </div>
+
+           <div class="row align-items-center justify-content-center">
+               <div class="col4 text-center">
+                   <button type="button" class="btn btn-primary btn-lg">
+                       @Html.ActionLink("Torna alla Home", "Index","Admin")
+
+                   </button>
+
+               </div>
+
+           </div>
+
         <footer class="main-footer">
             <div class="footer-left">
                 Copyright © Alessandro Vaprio <div class="bullet"></div>

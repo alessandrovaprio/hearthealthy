@@ -35,6 +35,7 @@ namespace HeartHealthy.Controllers
                     fitbits = fitbits,
                     Allenamenti = allenamenti.ToList(),
                 };
+                models.AllenamentiTot = allenamenti.ToList().Count();
                 if (battiti.ToList().Count == 0)
                 {
                     models.Battiti = 0;

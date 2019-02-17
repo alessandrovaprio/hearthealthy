@@ -51,6 +51,11 @@
     animation-timing-function: linear;
     
 }
+button > a {
+    color: #FFFFFF;
+    font-weight: 500;
+}
+
 body {
 	background-color: #F6F6F6;
 	font-size: 14px;
@@ -590,7 +595,7 @@ body.sidebar-gone .main-content {
 	padding-left: 10px;
 }
 .main-content {
-	padding-left: 280px;
+	padding-left: 30px;
 	padding-right: 30px;
 	padding-top: 80px;
 	width: 100%;

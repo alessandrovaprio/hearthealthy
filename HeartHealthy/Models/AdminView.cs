@@ -10,5 +10,7 @@ namespace HeartHealthy.Models
         public int Utenti { get; set; }
         public int Dottori { get; set; }
         public int Admin { get; set; }
+        public int Fitbit { get; set; }
+        public int FitbitNoReg { get; set; }
     }
 }

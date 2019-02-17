@@ -1,53 +1,29 @@
 ﻿<Properties StartupConfiguration="{78128934-7608-471B-9519-6986F990E41E}|Default">
   <MonoDevelop.Ide.ItemProperties.HeartHealthy PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="HeartHealthy/wwwroot/stisla_admin_v1.0.0/dist/js/app.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="HeartHealthy/wwwroot/stisla_admin_v1.0.0/templates/simple.html">
     <Files>
-      <File FileName="HeartHealthy/appsettings.json" Line="6" Column="1" />
-      <File FileName="HeartHealthy/Startup.cs" Line="146" Column="150" />
-      <File FileName="HeartHealthy/wwwroot/stisla_admin_v1.0.0/Documentation - Stisla.url" Line="1" Column="1" />
-      <File FileName="HeartHealthy/wwwroot/stisla_admin_v1.0.0/templates/login.html" Line="1" Column="1" />
-      <File FileName="HeartHealthy/Controllers/LoginController.cs" Line="1" Column="1" />
-      <File FileName="HeartHealthy/Models/Users.cs" Line="23" Column="37" />
-      <File FileName="HeartHealthy/Program.cs" Line="1" Column="1" />
-      <File FileName="HeartHealthy/obj/Debug/netcoreapp2.0/SaneHearth.csproj.FileListAbsolute.txt" Line="55" Column="1" />
-      <File FileName="HeartHealthy/Data/HealthDataContext.cs" Line="1" Column="1" />
-      <File FileName="HeartHealthy/Data/HealthDataContextFactory.cs" Line="1" Column="1" />
-      <File FileName="HeartHealthy/Data/IDataContextFactory.cs" Line="1" Column="1" />
-      <File FileName="HeartHealthy/Models/AdminView.cs" Line="12" Column="39" />
-      <File FileName="HeartHealthy/Models/Allenamento.cs" Line="1" Column="1" />
-      <File FileName="HeartHealthy/Models/AllenamentoModel.cs" Line="1" Column="1" />
-      <File FileName="HeartHealthy/Models/Attivita.cs" Line="1" Column="1" />
-      <File FileName="HeartHealthy/Models/Battito.cs" Line="1" Column="1" />
-      <File FileName="HeartHealthy/Models/DoctorModels.cs" Line="1" Column="1" />
-      <File FileName="HeartHealthy/Properties/launchSettings.json" Line="1" Column="1" />
-      <File FileName="HeartHealthy/Models/UsersView.cs" Line="8" Column="2" />
-      <File FileName="HeartHealthy/Views/Shared/_Layout.cshtml" Line="7" Column="35" />
-      <File FileName="HeartHealthy/Views/Shared/_LayoutAdmin.cshtml" Line="114" Column="55" />
-      <File FileName="HeartHealthy/Views/Shared/_LayoutLogin.cshtml" Line="17" Column="86" />
-      <File FileName="HeartHealthy/Views/Shared/Error.cshtml" Line="1" Column="1" />
+      <File FileName="HeartHealthy/Views/Admin/ElencoFitBitNonAssociati.cshtml" Line="10" Column="31" />
+      <File FileName="HeartHealthy/wwwroot/stisla_admin_v1.0.0/dist/js/scripts.js" Line="36" Column="6" />
+      <File FileName="HeartHealthy/Views/Doctor/Index.cshtml" Line="81" Column="21" />
+      <File FileName="HeartHealthy/Views/Doctor/AllenamentoToView.cshtml" Line="1" Column="1" />
+      <File FileName="HeartHealthy/Views/Doctor/InsertAllenamento.cshtml" Line="1" Column="1" />
+      <File FileName="HeartHealthy/Views/Shared/_Layout.cshtml" Line="95" Column="15" />
+      <File FileName="HeartHealthy/Controllers/DoctorController.cs" Line="38" Column="23" />
+      <File FileName="HeartHealthy/Models/DoctorModels.cs" Line="15" Column="9" />
+      <File FileName="HeartHealthy/Models/EliminaModel.cs" Line="1" Column="1" />
+      <File FileName="HeartHealthy/Views/Doctor/MonitoraggioToView.cshtml" Line="1" Column="1" />
+      <File FileName="HeartHealthy/Models/MonitoraggioModels.cs" Line="25" Column="18" />
+      <File FileName="HeartHealthy/Views/Shared/_LayoutAdmin.cshtml" Line="126" Column="30" />
+      <File FileName="HeartHealthy/wwwroot/stisla_admin_v1.0.0/dist/css/style.css" Line="55" Column="19" />
+      <File FileName="HeartHealthy/Views/Shared/_LayoutLogin.cshtml" Line="17" Column="40" />
+      <File FileName="HeartHealthy/Views/Admin/Profilo.cshtml" Line="47" Column="47" />
+      <File FileName="HeartHealthy/Views/Admin/UpdateProfilo.cshtml" Line="12" Column="1" />
+      <File FileName="HeartHealthy/Views/Doctor/Monitoraggio.cshtml" Line="32" Column="23" />
+      <File FileName="HeartHealthy/wwwroot/stisla_admin_v1.0.0/templates/404.html" Line="62" Column="64" />
+      <File FileName="HeartHealthy/wwwroot/stisla_admin_v1.0.0/dist/modules/scroll-up-bar/dist/scroll-up-bar.js" Line="134" Column="32" />
       <File FileName="HeartHealthy/Views/_ViewImports.cshtml" Line="1" Column="1" />
       <File FileName="HeartHealthy/Views/_ViewStart.cshtml" Line="1" Column="1" />
-      <File FileName="HeartHealthy/Views/Login/Index.cshtml" Line="1" Column="1" />
-      <File FileName="HeartHealthy/wwwroot/my-login-1.0.0/css/my-login.css" Line="6" Column="27" />
-      <File FileName="HeartHealthy/Controllers/DoctorController.cs" Line="216" Column="41" />
-      <File FileName="HeartHealthy/Controllers/AdminController.cs" Line="196" Column="41" />
-      <File FileName="HeartHealthy/Views/Admin/Index.cshtml" Line="16" Column="45" />
-      <File FileName="HeartHealthy/wwwroot/stisla_admin_v1.0.0/dist/css/skins/blue.css" Line="119" Column="2" />
-      <File FileName="HeartHealthy/wwwroot/stisla_admin_v1.0.0/dist/modules/bootstrap/css/bootstrap.css" Line="8" Column="20" />
-      <File FileName="HeartHealthy/Views/Login/ChangePassword.cshtml" Line="1" Column="1" />
-      <File FileName="HeartHealthy/Views/Login/Forgot.cshtml" Line="1" Column="1" />
-      <File FileName="HeartHealthy/Views/Login/ForgotThanks.cshtml" Line="1" Column="1" />
-      <File FileName="HeartHealthy/Views/Login/Registrati.cshtml" Line="1" Column="1" />
-      <File FileName="HeartHealthy/wwwroot/stisla_admin_v1.0.0/dist/css/style.css" Line="53" Column="2" />
-      <File FileName="HeartHealthy/wwwroot/stisla_admin_v1.0.0/dist/css/skins/lightblue.css" Line="119" Column="2" />
-      <File FileName="HeartHealthy/wwwroot/stisla_admin_v1.0.0/dist/css/skins/darksidebar.css" Line="4" Column="2" />
-      <File FileName="HeartHealthy/wwwroot/stisla_admin_v1.0.0/dist/css/skins/deeppurple.css" Line="120" Column="27" />
-      <File FileName="HeartHealthy/Views/Admin/Profilo.cshtml" Line="58" Column="4" />
-      <File FileName="HeartHealthy/Views/Admin/UpdateProfilo.cshtml" Line="12" Column="1" />
-      <File FileName="HeartHealthy/Models/ProfiloView.cs" Line="15" Column="23" />
-      <File FileName="HeartHealthy/wwwroot/stisla_admin_v1.0.0/dist/css/custom.css" Line="1" Column="1" />
-      <File FileName="HeartHealthy/Views/Admin/UpdatePassword.cshtml" Line="1" Column="1" />
-      <File FileName="HeartHealthy/wwwroot/stisla_admin_v1.0.0/dist/js/app.js" Line="1" Column="182365" />
+      <File FileName="HeartHealthy/wwwroot/stisla_admin_v1.0.0/templates/simple.html" Line="225" Column="51" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
