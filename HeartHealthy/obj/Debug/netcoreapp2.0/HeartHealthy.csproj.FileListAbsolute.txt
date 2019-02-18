@@ -18,3 +18,4 @@ C:\Users\avaprio.IRIDES\web-dev\Progetto_HeartHealthy\HeartHealthy\HeartHealthy\
 C:\Users\avaprio.IRIDES\web-dev\Progetto_HeartHealthy\HeartHealthy\HeartHealthy\obj\Debug\netcoreapp2.0\HeartHealthy.AssemblyInfo.cs
 C:\Users\avaprio.IRIDES\web-dev\Progetto_HeartHealthy\HeartHealthy\HeartHealthy\obj\Debug\netcoreapp2.0\HeartHealthy.dll
 C:\Users\avaprio.IRIDES\web-dev\Progetto_HeartHealthy\HeartHealthy\HeartHealthy\obj\Debug\netcoreapp2.0\HeartHealthy.pdb
+C:\Users\avaprio.IRIDES\web-dev\Progetto_HeartHealthy\HeartHealthy\HeartHealthy\obj\Debug\netcoreapp2.0\HeartHealthy.csprojAssemblyReference.cache
