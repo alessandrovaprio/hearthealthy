@@ -35,7 +35,7 @@
                     <td><h3>@Model.Email</h3></td>
                 </tr>
                 <tr>
-                    <th><h3><scope ="row">Ruolo </h3></th>
+                    <th><h3><scope="row">Ruolo</h3></th>
                     <td><h3>@Model.Ruolo</h3></td>
             </tbody>
         </table>
@@ -52,8 +52,7 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div >
-                <h4 class="modal-title">Modifica profilo</h4>
-               
+                <h4 class="modal-title" align="center">Modifica profilo</h4>
                 <!--<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>-->
             </div>
             <div>
@@ -61,8 +60,8 @@
                 @using (Html.BeginForm("Update", "Admin", new { id = User.Claims.ToList().ElementAt(0).Value, pass = Model.Password, ruolo=Model.Ruolo } , FormMethod.Post))
                 {
                 //@Html.AntiForgeryToken()
-                <div class="card card-sm-3">
-                    <div class="card-body">
+                <div class="card card-sm-3 bg-light">
+                    <div class="card-body bg-light">
                         <br />
                         <!--<form method="POST">-->
                             <table border="0">
@@ -110,7 +109,7 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div>
-                <h4 class="modal-title">Modifica password</h4>
+                <h4 class="modal-title" align="center">Modifica password</h4>
 
                 <!--<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>-->
             </div>
@@ -140,8 +139,8 @@
                 {
 
                     @Html.AntiForgeryToken()
-                    <div class="card card-sm-3">
-                        <div class="card-body">
+                    <div class="card card-sm-3 bg-light">
+                        <div class="card-body bg-light">
                             <br />
                             
                                 <table border="0">

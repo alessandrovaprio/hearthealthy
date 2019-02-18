@@ -161,6 +161,7 @@ namespace HeartHealthy.Controllers
             {
                 var users = db.GetUsers.Where(u => u.Email == mail).FirstOrDefault();
                 string randomPassword = GenerateRandomPassword();
+                
                 if (users!=null)
                 { 
                     users.FP = true;

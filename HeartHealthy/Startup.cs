@@ -136,12 +136,12 @@ namespace HeartHealthy
                 db.Insert(new Peso { IdFitBit = 3, DataRegistrazione = DateTime.Today, PesoIstantaneo = 80 });
                 db.Insert(new Peso { IdFitBit = 3, DataRegistrazione = DateTime.Today, PesoIstantaneo = 80 });
 
-                db.Insert(new Fitbit { Nome = "Giacomo", Cognome = "Gallo", Mail = "giacomogallo@gmail.com", DoctorId = null , GirnoAssociazione = null});
+                db.Insert(new Fitbit { Nome = "Giacomo", Cognome = "Gallo", Mail = "giacomomasserano@gmail.com", DoctorId = null , GirnoAssociazione = null});
                 db.Insert(new Fitbit { Nome = "Luca", Cognome = "Abete", Mail = "luca.abete@gmail.com", DoctorId = null, GirnoAssociazione = null });
                 db.Insert(new Fitbit { Nome = "Marco", Cognome = "Rossi", Mail = "rossimarco@gmail.com", DoctorId = null, GirnoAssociazione = null });
-                db.Insert(new Fitbit { Nome = "Tony", Cognome = "Bianco", Mail = "tony1943@gmail.com", DoctorId = null, GirnoAssociazione = null });
+                db.Insert(new Fitbit { Nome = "Tony", Cognome = "Bianco", Mail = "tonypaninibuoni@gmail.com", DoctorId = null, GirnoAssociazione = null });
 
-                db.Insert(new Users { Nome = "Paolo",Cognome="Rossi",Email="admin@gmail.com",Password="admin",FP=false,Doctor=false});
+                db.Insert(new Users { Nome = "Alessandro",Cognome="Vaprio",Email="admin@admin.com",Password="admin",FP=false,Doctor=false});
                 db.Insert(new Users { Nome = "Mario", Cognome = "Rossi", Email = "mario@gmail.com", Password = "rossi", FP = false, Doctor = true });
                 db.Insert(new Users { Nome = "Paolo", Cognome = "Verdi", Email = "paolo@gmail.com", Password = "verdi", FP = false, Doctor = true });
                 */
